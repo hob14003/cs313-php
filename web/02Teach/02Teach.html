@@ -4,17 +4,44 @@
     <title>Temporary Title for 02 Teach</title>
     <link rel="stylesheet" type="text/css" href="02Teach.css">
     <script src="02Teach.js"></script>
-</head>
-<body>
 
-<h1 style="color:red;">Hello World!</h1>
-    <div class="t1 boldHover">Test 1</div>
-    <div class="t2 boldHover">Test 2</div>
-    <div class="t3 boldHover">Test 3</div>
-    <button onclick="clicked();">Click Me</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script>
+        $(document).ready(function(){
+            $("button").click(function colorJQ(){
+                $("#t1").hide();
+            });
+        });
+        
+        $(document).ready(function(){
+  $("button").click(function fade(){
+      $("#t3").fadeOut(3000);
+    $("#t3").fadeIn(3000);
+  });
+});
+    </script>
     
-		<label for="txtColor">Color:</label> <input type="text" id="txtColor" placeholder="#cccccc"><br />
-    <button onclick="colorChange();">Change color</button>
+</head>
+    
+<body>
+<div class="container-fluid">
+<h1 style="color:red;">Hello World!</h1>
+    <div class="row">
+    <div id ="t1" class="col-4 boldHover">Test 1</div>
+    <div id ="t2" class="col-4 boldHover">Test 2</div>
+    <div id ="t3" class="col-4 boldHover">Test 3</div>
+    </div>
+    <button onclick="clicked();">Click Me</button> <br />
+    
+		<label for="txtColor">Color:</label> <input type="text" id="txtColor" placeholder="#cccccc">
+    <button onclick="colorChange();">Change color</button> <br />
+    
+    <label for="txtColor">Color:</label> <input type="text" id="txtColor" placeholder="#cccccc">
+    <button onclick="colorJQ();">Change color</button> <br />
+    <button onclick="fade();">Fade</button> <br />
+
+    </div>
 
 </body>
 </html>
