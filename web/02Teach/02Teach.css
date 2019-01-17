@@ -1,0 +1,18 @@
+.t1 {
+    font-size: 30px;
+    background-color: red;
+}
+
+.t2 {
+    font-size: 20px;
+    background-color: yellow;
+}
+
+.t3 {
+    font-size: 10px;
+    background-color: blue;
+}
+
+.boldHover:hover {
+    font-weight: bold;
+}
