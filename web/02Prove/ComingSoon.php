@@ -30,7 +30,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
         
       <ul class="row nav navbar-nav">
-        <li class="active"><a href="<?php echo 'HomePage.php'; ?>">Home</a></li>
+        <li><a href="<?php echo 'HomePage.php'; ?>">Home</a></li>
         <li><a href="<?php echo 'AboutMe.php'; ?>">Random Facts</a></li>
       </ul>
     </div>
