@@ -10,12 +10,12 @@
 </head>
 <body>
 
-<div class="jumbotron text-center">
+<div class="container-fluid bg-1 jumbotron text-center">
   <h1>CS 313 Home</h1>
   <p>Resize this responsive page to see the effect!</p> 
 </div>
   
-<div class="container">
+<div class="container-fluid bg-2 text-center">
     <div class="d-flex justify-content-center">
       <h3>Column 1</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
