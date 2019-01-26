@@ -51,7 +51,7 @@ $username = $_SESSION["user"];
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="/HomePage.php">CS 313 Home </a>
+        <a class="nav-link" href="/02Prove/HomePage.php">CS 313 Home </a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="browse.php">Browse <span class="sr-only">(current)</span></a>
