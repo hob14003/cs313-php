@@ -53,7 +53,7 @@ $address = filter_var($addressDirty, FILTER_SANITIZE_STRING);
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="/HomePage.php">CS 313 Home </a>
+        <a class="nav-link" href="/02Prove/HomePage.php">CS 313 Home </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="browse.php">Browse</a>

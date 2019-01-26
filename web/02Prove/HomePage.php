@@ -46,7 +46,7 @@
       <div class="col-sm-1"></div>
     <div class="col-sm-5 img-container">
       <p>03 Prove: Shopping Cart</p>
-        <a href="<?php echo 'ComingSoon.php'; ?>"><img src="http://paolaelefante.com/wp-content/uploads/2015/10/coding-750x410.jpg" class="img-caption" style="width:100%" alt="Code" ><span class="centered-on-pic">03 Prove: Shopping Cart</span></a>
+        <a href="<?php echo '/03Prove/browse.php'; ?>"><img src="http://paolaelefante.com/wp-content/uploads/2015/10/coding-750x410.jpg" class="img-caption" style="width:100%" alt="Code" ><span class="centered-on-pic">03 Prove: Shopping Cart</span></a>
     </div>
     <div class="col-sm-5 img-container">
       <p>04 Prove: DB Setup</p>
