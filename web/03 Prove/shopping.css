@@ -1,0 +1,39 @@
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
+    width:100%;
+}
+.img-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.dark-bar {
+    background-color: #222222;
+    color: white;
+    font-size: 40px;
+}
+.c-green {
+    color:#009959;
+}
+.c-blue {
+    color:#0065B3;
+}
+.c-purple {
+    color:mediumpurple;
+}
+.c-gold {
+    color:#FFCB05;
+}
+.c-teal {
+    color:#17BED0;
+}
+.c-ba {
+    color:#FFDBB7;
+}
+.c-red {
+    color:#ED1A3B;
+}
+.c-pink {
+    color:#EE3D97;
+}
