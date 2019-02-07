@@ -34,6 +34,7 @@ catch (PDOException $ex)
 foreach ($db->query('SELECT * FROM SCRIPTURES') as $row)
   {
       echo '<strong>' . $row[1] . ' ' . $row[2] . ':' . $row[3] . '</strong>' . ' - "' . $row[4] . '"';
+      echo '<br>';
   }
 ?>
     
