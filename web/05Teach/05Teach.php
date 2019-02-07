@@ -19,11 +19,6 @@ try
 
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-   // foreach ($db->query('SELECT BOOK FROM SCRIPTURES') as $row)
-   // {
-   //     echo '<strong>' . $row[1] . ' ' $row[2] . ':' . $row[3] . '</strong>' . ' - "' . $row[4] . '"';
-   // }
-    
 }
 catch (PDOException $ex)
 {
