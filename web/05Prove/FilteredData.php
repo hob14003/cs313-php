@@ -44,6 +44,15 @@ catch (PDOException $ex)
 }
 ?>
 
+    <!-- CELL IMAGE -->
+<div class="container">
+  <div class="row">     
+    <div class="col-4">
+        <img src="images/blueCells.jpg" class="img-fluid" alt="Responsive image">
+    </div>
+  </div>
+</div>
+    
     <!-- NAVBAR -->
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -56,7 +65,7 @@ catch (PDOException $ex)
     <ul class="navbar-nav mr-auto">
         
       <li class="nav-item">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="3DomainsHome.php">Home <span class="sr-only">(current)</span></a>
       </li>
         
       <li class="nav-item dropdown">
@@ -124,7 +133,7 @@ catch (PDOException $ex)
             echo "    
                 <div class=\"container\">
                 <div class=\"row\">     
-                <div class=\"col-4\">
+                <div class=\"col-sm\">
                 <h2>" . $_GET['characteristic'] . "</h2>
                 <table class=\"table\">
                     <thead>
@@ -152,7 +161,7 @@ catch (PDOException $ex)
             echo "   
                 <div class=\"container\">
                 <div class=\"row\">     
-                <div class=\"col-4\">
+                <div class=\"col-sm\">
                 <h2>" . $_GET['component'] . "</h2>
                 <table class=\"table\">
                     <thead>
@@ -180,31 +189,31 @@ catch (PDOException $ex)
             echo "   
                 <div class=\"container\">
                 <div class=\"row\">     
-                <div class=\"col-4\">
+                <div class=\"col-sm\">
                 <h2>" . $_GET['domain'] . "</h2>
                 <table class=\"table\">
                     <thead>
                         <tr>
-                        <th scope=\"col\">Domain</th>
+                        <th scope=\"col\">Characteristic</th>
                         <th scope=\"col\">Description</th>
                         </tr>
                     </thead>
                     <tbody>";
             
-                    foreach ($db->query("SELECT d.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE D.NAME = " . "'" . $_GET["domain"] . "';") as $row)
+                    foreach ($db->query("SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE D.NAME = " . "'" . $_GET["domain"] . "';") as $row)
                     {
                         echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td></tr>";
                     }
             echo "</tbody>
                   <thead>
                         <tr>
-                        <th scope=\"col\">Domain</th>
+                        <th scope=\"col\">Component</th>
                         <th scope=\"col\">Description</th>
                         </tr>
                     </thead>
                     <tbody>";
             
-                    foreach ($db->query("SELECT d.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE d.NAME = " . "'" . $_GET["domain"] . "';") as $row)
+                    foreach ($db->query("SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE d.NAME = " . "'" . $_GET["domain"] . "';") as $row)
                     {
                         echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td></tr>";
                     }

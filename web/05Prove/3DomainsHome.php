@@ -45,6 +45,15 @@ catch (PDOException $ex)
 }
 ?>
 
+<!-- CELL IMAGE -->
+<div class="container">
+  <div class="row">     
+    <div class="col-4">
+        <img src="images/blueCells.jpg" class="img-fluid" alt="Responsive image">
+    </div>
+  </div>
+</div>
+    
     <!-- NAVBAR -->
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
