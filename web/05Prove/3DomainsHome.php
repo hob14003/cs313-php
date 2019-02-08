@@ -119,12 +119,6 @@ catch (PDOException $ex)
     
     
     <!-- TABLES -->
-    <?php
-    foreach ($db->query('SELECT c.NAME AS Compnent FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID') as $row)
-    {
-        
-    }
-     ?>
     
 <div class="container">
   <div class="row">     

@@ -118,6 +118,16 @@ catch (PDOException $ex)
     
     
     <!-- TABLES -->
+    
+    <?php
+        if($_GET["characteristic"]) {
+            echo "<h1>Found" . $_GET['characteristic'] . "</h1><br>";
+            exit();
+        }
+    ?>
+    
+    
+    
     <?php
     foreach ($db->query('SELECT c.NAME AS Compnent FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID') as $row)
     {
