@@ -1,3 +1,8 @@
+
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -60,19 +65,12 @@ catch (PDOException $ex)
           Characteristics
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <select name="characteristic" id="characteristic">
             <?php
                 foreach ($db->query('SELECT DISTINCT c.NAME FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID') as $row)
                 {
-                    echo "<option><a class=\"dropdown-item\" href=\"#\">" . $row[0] . "</a></option>";
+                    echo "<a class=\"dropdown-item\" href=\"#\">" . $row[0] . "</a>";
                 }
                 ?>
-            </select>
-            <?php
-                session_start();
-                if(isset($_POST['characteristic']))
-                    $_SESSION['characteristic'] = $_POST['characteristic'];
-            ?>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">All</a>
         </div>
@@ -83,19 +81,12 @@ catch (PDOException $ex)
           Components
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <select name="component" id="component">
             <?php
                 foreach ($db->query('SELECT DISTINCT c.NAME FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID') as $row)
                 {
                     echo "<option><a class=\"dropdown-item\" href=\"#\">" . $row[0] . "</a></option>";
                 }
                 ?>
-            </select>
-            <?php
-                session_start();
-                if(isset($_POST['component']))
-                    $_SESSION['component'] = $_POST['component'];
-            ?>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">All</a>
         </div>
@@ -106,19 +97,12 @@ catch (PDOException $ex)
           Components
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <select name="domain" id="domain">
             <?php
                 foreach ($db->query('SELECT DISTINCT NAME FROM DOMAIN') as $row)
                 {
                     echo "<option><a class=\"dropdown-item\" href=\"#\">" . $row[0] . "</a></option>";
                 }
                 ?>
-            </select>
-            <?php
-                session_start();
-                if(isset($_POST['domain']))
-                    $_SESSION['domain'] = $_POST['domain'];
-            ?>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">All</a>
         </div>
