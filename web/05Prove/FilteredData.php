@@ -121,11 +121,11 @@ catch (PDOException $ex)
     
     <?php
         if($_GET["characteristic"]) {
-            echo "<h1>Found" . $_GET['characteristic'] . "</h1><br>    
+            echo "<h1>Found " . $_GET['characteristic'] . "</h1><br>    
                 <div class=\"container\">
                 <div class=\"row\">     
                 <div class=\"col-sm\">
-                <h2></h2>
+                <h2>" . $_GET['characteristic'] . "</h2>
                 <table class=\"table\">
                     <thead>
                         <tr>
@@ -136,9 +136,9 @@ catch (PDOException $ex)
                     </thead>
                     <tbody>";
             
-                    foreach ($db->query("SELECT d.NAME, c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE c.NAME = " . $_GET["characteristic"] . ";") as $row)
+                    foreach ($db->query("SELECT d.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE c.NAME = " . "'" . $_GET["characteristic"] . "';") as $row)
                     {
-                        echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td></tr>";
+                        echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td></tr>";
                     }
             echo "</tbody>
                   </table>
