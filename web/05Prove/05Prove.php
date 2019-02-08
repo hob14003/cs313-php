@@ -62,7 +62,7 @@ catch (PDOException $ex)
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             
             <?php
-                foreach ($db->query('SELECT DISTINCT c.NAME FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID') as $row)
+                foreach ($db->query('SELECT DISTINCT c.NAME FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID') as $row)
                 {
                     echo "<a class=\"dropdown-item\" href=\"#\">" . $row[0] . "</a>";
                 }
@@ -87,7 +87,25 @@ catch (PDOException $ex)
                 ?>
             
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#">All</a>
+        </div>
+      </li>
+        
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Components
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+            <?php
+                foreach ($db->query('SELECT DISTINCT d.NAME FROM DOMAIN') as $row)
+                {
+                    echo "<a class=\"dropdown-item\" href=\"#\">" . $row[0] . "</a>";
+                }
+                ?>
+            
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">All</a>
         </div>
       </li>
         
