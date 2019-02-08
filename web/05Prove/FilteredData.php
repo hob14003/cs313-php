@@ -18,7 +18,6 @@ session_start();
     
 </head>
 <body>
-    <h1>3Domains</h1>
 <?php
 try
 {
@@ -44,12 +43,15 @@ catch (PDOException $ex)
 }
 ?>
 
-<!-- CELL IMAGE -->
-<div class="container-fluid no-padding">
-  <div class="row">     
-    <div class="col-md-12">
-        <img src="images/blueCells.jpg" class="img-fluid" alt="Responsive image">
+<!-- LOGO -->
+    <div class="container-fluid no-padding bg-drkCell">
+        <img src="images/LOGO.jpg" class="img-fluid" alt="Responsive image">
     </div>
+    
+<!-- CELL IMAGE -->
+<div class="container-fluid no-padding center">   
+    <div class="col-md-12">
+        <img src="images/blueCellsCrp.jpg" class="img-fluid crop height400" alt="Responsive image">
   </div>
 </div>
     
@@ -64,8 +66,8 @@ catch (PDOException $ex)
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
         
-      <li class="nav-item">
-        <a class="nav-link" href="3DomainsHome.php">Home</a>
+      <li class="nav-item active">
+        <a class="nav-link" href="3DomainsHome.php">Home <span class="sr-only">(current)</span></a>
       </li>
         
       <li class="nav-item dropdown">
@@ -80,7 +82,7 @@ catch (PDOException $ex)
                 }
                 ?>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">All</a>
+          <a class="dropdown-item" href="FilteredData.php?characteristic=all">All</a>
         </div>
       </li>
         
@@ -96,7 +98,7 @@ catch (PDOException $ex)
                 }
                 ?>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">All</a>
+          <a class="dropdown-item" href="FilteredData.php?component=all">All</a>
         </div>
       </li>
         
@@ -112,7 +114,7 @@ catch (PDOException $ex)
                 }
                 ?>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">All</a>
+          <a class="dropdown-item" href="3DomainsHome.php">All</a>
         </div>
       </li>
         
@@ -123,7 +125,6 @@ catch (PDOException $ex)
     </form>
   </div>
 </nav>
-    
     
     
     <!-- TABLES -->
@@ -137,20 +138,29 @@ catch (PDOException $ex)
                 <h2>" . $_GET['characteristic'] . "</h2>
                 <table class=\"table\">
                     <thead>
-                        <tr>
+                        <tr>";
+            if($_GET["characteristic"] == "All Characteristics") {
+                echo"
                         <th scope=\"col\">Domain</th>
+                        <th scope=\"col\">Characteristic</th>
                         <th scope=\"col\">Description</th>
                         </tr>
                     </thead>
                     <tbody>";
             
-                    if($_GET["characteristic"] == "all") {
-                        foreach ($db->query("SELECT d.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID;") as $row)
+                    
+                        foreach ($db->query("SELECT d.NAME, c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID;") as $row)
                         {
-                            echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td></tr>";
+                            echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td></tr>";
                         }
                     }
                     else {
+                    echo"
+                        <th scope=\"col\">Domain</th>
+                        <th scope=\"col\">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
                         foreach ($db->query("SELECT d.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE c.NAME = " . "'" . $_GET["characteristic"] . "';") as $row)
                         {
                             echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td></tr>";
@@ -233,6 +243,17 @@ catch (PDOException $ex)
         }
     ?>
     
+        <!-- CELL FOOTER -->
+<div class="container-fluid no-padding">
+  <div class="row">     
+    <div class="col-md-12">
+        <img src="images/blueCellsSprCrp.jpg" class="img-fluid crop" alt="Responsive image">
+    </div>
+      <div class="col-md-12">
+          <h1 class="bg-dark text-dark">.</h1>
+    </div>
+  </div>
+</div>
     
     
 </body>

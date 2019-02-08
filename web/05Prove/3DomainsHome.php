@@ -67,7 +67,7 @@ catch (PDOException $ex)
     <ul class="navbar-nav mr-auto">
         
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="3DomainsHome.php">Home <span class="sr-only">(current)</span></a>
       </li>
         
       <li class="nav-item dropdown">
@@ -82,7 +82,7 @@ catch (PDOException $ex)
                 }
                 ?>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="FilteredData.php?characteristic=all">All</a>
+          <a class="dropdown-item" href="FilteredData.php?characteristic=All Characteristics">All</a>
         </div>
       </li>
         
@@ -98,7 +98,7 @@ catch (PDOException $ex)
                 }
                 ?>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="FilteredData.php?component=all">All</a>
+          <a class="dropdown-item" href="FilteredData.php?component=All Components">All</a>
         </div>
       </li>
         
