@@ -59,7 +59,7 @@
         <div class="col-sm-1"></div>
     <div class="col-sm-5 img-container">
       <p>05 Prove: DB Access</p>
-      <a href="<?php echo 'ComingSoon.php'; ?>"><img src="http://paolaelefante.com/wp-content/uploads/2015/10/coding-750x410.jpg" class="img-responsive" style="width:100%" alt="Code"><span class="centered-on-pic">05 Prove: DB Access</span></a>
+      <a href="<?php echo '/web/05Prove/3DomainsHome.php'; ?>"><img src="http://paolaelefante.com/wp-content/uploads/2015/10/coding-750x410.jpg" class="img-responsive" style="width:100%" alt="Code"><span class="centered-on-pic">05 Prove: DB Access</span></a>
     </div>
     <div class="col-sm-5 img-container">
       <p>06 Prove: DB Update</p>

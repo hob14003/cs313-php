@@ -58,7 +58,7 @@ catch (PDOException $ex)
    <!-- NAVBAR -->
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"></a>
+  <a class="navbar-brand" href="/web/02Prove/HomePage.php">CS 313 Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
