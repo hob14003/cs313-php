@@ -122,7 +122,7 @@ catch (PDOException $ex)
     
 <div class="container">
   <div class="row">     
-    <div class="col-sm">
+    <div class="col-4">
         <h2>Bacteria</h2>
       <table class="table">
         <thead>
@@ -155,7 +155,7 @@ catch (PDOException $ex)
         </tbody>
       </table>
     </div>     
-      <div class="col-sm">    
+      <div class="col-4">    
        <h2>Archaea</h2>
       <table class="table">
         <thead>
@@ -188,7 +188,7 @@ catch (PDOException $ex)
         </tbody>
       </table>
     </div>      
-      <div class="col-sm">   
+      <div class="col-4">   
         <h2>Eukarya</h2>
       <table class="table">
         <thead>

@@ -55,8 +55,8 @@ catch (PDOException $ex)
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
         
-      <li class="nav-item active">
-        <a class="nav-link" href="3DomainsHome.php">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
         
       <li class="nav-item dropdown">
@@ -67,7 +67,7 @@ catch (PDOException $ex)
             <?php
                 foreach ($db->query('SELECT DISTINCT c.NAME FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID') as $row)
                 {
-                    echo "<a class=\"dropdown-item\" href=\"#\">" . $row[0] . "</a>";
+                    echo "<a class=\"dropdown-item\" href=\"FilteredData.php?characteristic=" . $row[0] . "\">" . $row[0] . "</a>";
                 }
                 ?>
           <div class="dropdown-divider"></div>
@@ -83,7 +83,7 @@ catch (PDOException $ex)
             <?php
                 foreach ($db->query('SELECT DISTINCT c.NAME FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID') as $row)
                 {
-                    echo "<a class=\"dropdown-item\" href=\"#\">" . $row[0] . "</a>";
+                    echo "<a class=\"dropdown-item\" href=\"FilteredData.php?component=" . $row[0] . "\">" . $row[0] . "</a>";
                 }
                 ?>
           <div class="dropdown-divider"></div>
@@ -99,7 +99,7 @@ catch (PDOException $ex)
             <?php
                 foreach ($db->query('SELECT DISTINCT NAME FROM DOMAIN') as $row)
                 {
-                    echo "<a class=\"dropdown-item\" href=\"#\">" . $row[0] . "</a>";
+                    echo "<a class=\"dropdown-item\" href=\"FilteredData.php?domain=" . $row[0] . "\">" . $row[0] . "</a>";
                 }
                 ?>
           <div class="dropdown-divider"></div>
@@ -124,7 +124,7 @@ catch (PDOException $ex)
             echo "    
                 <div class=\"container\">
                 <div class=\"row\">     
-                <div class=\"col-sm\">
+                <div class=\"col-4\">
                 <h2>" . $_GET['characteristic'] . "</h2>
                 <table class=\"table\">
                     <thead>
@@ -152,7 +152,7 @@ catch (PDOException $ex)
             echo "   
                 <div class=\"container\">
                 <div class=\"row\">     
-                <div class=\"col-sm\">
+                <div class=\"col-4\">
                 <h2>" . $_GET['component'] . "</h2>
                 <table class=\"table\">
                     <thead>
@@ -180,7 +180,7 @@ catch (PDOException $ex)
             echo "   
                 <div class=\"container\">
                 <div class=\"row\">     
-                <div class=\"col-sm\">
+                <div class=\"col-4\">
                 <h2>" . $_GET['domain'] . "</h2>
                 <table class=\"table\">
                     <thead>
