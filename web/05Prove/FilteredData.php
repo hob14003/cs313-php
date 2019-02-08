@@ -44,10 +44,10 @@ catch (PDOException $ex)
 }
 ?>
 
-    <!-- CELL IMAGE -->
-<div class="container">
+<!-- CELL IMAGE -->
+<div class="container-fluid no-padding">
   <div class="row">     
-    <div class="col-4">
+    <div class="col-md-12">
         <img src="images/blueCells.jpg" class="img-fluid" alt="Responsive image">
     </div>
   </div>
