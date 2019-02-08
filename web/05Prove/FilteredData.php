@@ -121,141 +121,33 @@ catch (PDOException $ex)
     
     <?php
         if($_GET["characteristic"]) {
-            echo "<h1>Found" . $_GET['characteristic'] . "</h1><br>";
-    ?>
-    
-    <div class="container">
-  <div class="row">     
-    <div class="col-sm">
-        <h2>Bacteria</h2>
-      <table class="table">
-        <thead>
-            <tr>
-            <th scope="col">Domain</th>
-            <th scope="col">Characteristic</th>
-            <th scope="col">Description</th>
-            </tr>
-        </thead>
-        <tbody>      
-            <?php
-            foreach ($db->query('SELECT d.NAME, c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID;') as $row)
-            {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td></tr>";
-            }
-            ?>           
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-    <?php
-            //exit();
+            echo "<h1>Found" . $_GET['characteristic'] . "</h1><br>    
+                <div class=\"container\">
+                <div class=\"row\">     
+                <div class=\"col-sm\">
+                <h2></h2>
+                <table class=\"table\">
+                    <thead>
+                        <tr>
+                        <th scope=\"col\">Domain</th>
+                        <th scope=\"col\">Characteristic</th>
+                        <th scope=\"col\">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+            
+                    foreach ($db->query("SELECT d.NAME, c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE c.NAME = " . $_GET["characteristic"] . ";") as $row)
+                    {
+                        echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td></tr>";
+                    }
+            echo "</tbody>
+                  </table>
+                  </div>
+                  </div>
+                  </div>";
         }
     ?>
     
-<div class="container">
-  <div class="row">     
-    <div class="col-sm">
-        <h2>Bacteria</h2>
-      <table class="table">
-        <thead>
-            <tr>
-            <th scope="col">Component</th>
-            <th scope="col">Description</th>
-            </tr>
-        </thead>
-        <tbody>      
-            <?php
-            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE d.ID = 1;') as $row)
-            {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "<td></tr>";
-            }
-            ?>           
-        </tbody>
-          <thead>
-            <tr>
-            <th scope="col">Characteristic</th>
-            <th scope="col">Description</th>
-            </tr>
-        </thead>
-          <tbody>      
-            <?php
-            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE d.ID = 1;') as $row)
-            {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "<td></tr>";
-            }
-            ?>           
-        </tbody>
-      </table>
-    </div>     
-      <div class="col-sm">    
-       <h2>Archaea</h2>
-      <table class="table">
-        <thead>
-            <tr>
-            <th scope="col">Component</th>
-            <th scope="col">Description</th>
-            </tr>
-        </thead>
-        <tbody>       
-            <?php
-            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE d.ID = 2;') as $row)
-            {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "<td></tr>";
-            }
-            ?>           
-        </tbody>
-        <thead>
-            <tr>
-            <th scope="col">Characteristic</th>
-            <th scope="col">Description</th>
-            </tr>
-        </thead>
-          <tbody>      
-            <?php
-            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE d.ID = 2;') as $row)
-            {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "<td></tr>";
-            }
-            ?>           
-        </tbody>
-      </table>
-    </div>      
-      <div class="col-sm">   
-        <h2>Eukarya</h2>
-      <table class="table">
-        <thead>
-            <tr>
-            <th scope="col">Component</th>
-            <th scope="col">Description</th>
-            </tr>
-        </thead>
-        <tbody>     
-            <?php
-            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE d.ID = 3;') as $row)
-            {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "<td></tr>";
-            }
-            ?>         
-        </tbody>
-        <thead>
-            <tr>
-            <th scope="col">Characteristic</th>
-            <th scope="col">Description</th>
-            </tr>
-        </thead>
-          <tbody>      
-            <?php
-            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE d.ID = 1;') as $row)
-            {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "<td></tr>";
-            }
-            ?>           
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
     
 </body>
 </html>
