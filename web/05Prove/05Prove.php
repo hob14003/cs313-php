@@ -40,6 +40,35 @@ catch (PDOException $ex)
 }
 ?>
     
+    
+    <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Components
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      
+    <?php
+    foreach ($db->query('SELECT c.NAME AS Compnent FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID') as $row)
+    {
+        echo "<a class=\"dropdown-item\" href=\"#\">" . $row . "</a>";
+    }
+     ?>
+      
+         
+  </div>
+</div>
+    
+    
+    
+    
+    
+    <?php
+    foreach ($db->query('SELECT c.NAME AS Compnent FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID') as $row)
+    {
+        
+    }
+     ?>
+    
 <div class="container">
   <div class="row">     
     <div class="col-sm">        
