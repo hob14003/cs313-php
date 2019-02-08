@@ -55,10 +55,10 @@ catch (PDOException $ex)
   </div>
 </div>
     
-    <!-- NAVBAR -->
+   <!-- NAVBAR -->
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">3Domains</a>
+  <a class="navbar-brand" href="#"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -66,7 +66,7 @@ catch (PDOException $ex)
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
         
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="3DomainsHome.php">Home <span class="sr-only">(current)</span></a>
       </li>
         
@@ -82,7 +82,7 @@ catch (PDOException $ex)
                 }
                 ?>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="FilteredData.php?characteristic=all">All</a>
+          <a class="dropdown-item" href="FilteredData.php?characteristic=All Characteristics">All</a>
         </div>
       </li>
         
@@ -98,7 +98,7 @@ catch (PDOException $ex)
                 }
                 ?>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="FilteredData.php?component=all">All</a>
+          <a class="dropdown-item" href="FilteredData.php?component=All Components">All</a>
         </div>
       </li>
         
@@ -121,7 +121,7 @@ catch (PDOException $ex)
     </ul>
     <form action="FilteredData.php" method="get" class="form-inline my-2 my-lg-0">
       <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 </nav>
@@ -263,11 +263,11 @@ catch (PDOException $ex)
     <?php
         if($_GET["search"]) {
             $find = filter_var($_GET["search"]);
-            echo "   
+            echo $find . "   
                 <div class=\"container\">
                 <div class=\"row\">     
                 <div class=\"col-sm\">
-                <h2>" . $find . "</h2>
+                <h2>" . $find . "</h2><br>
                 <h4>Domain Search</h4>
                 <table class=\"table\">
                     <thead>
@@ -291,8 +291,7 @@ catch (PDOException $ex)
                 <div class=\"container\">
                 <div class=\"row\">     
                 <div class=\"col-sm\">
-                <h2>" . $find . "</h2>
-                <h4>Characteristic Search</h4>
+                <br><h4>Characteristic Search</h4>
                 <table class=\"table\">
                     <thead>
                         <tr>
@@ -317,8 +316,7 @@ catch (PDOException $ex)
                 <div class=\"container\">
                 <div class=\"row\">     
                 <div class=\"col-sm\">
-                <h2>" . $find . "</h2>
-                <h4>Component Search</h4>
+                <br><h4>Component Search</h4>
                 <table class=\"table\">
                     <thead>
                         <tr>
