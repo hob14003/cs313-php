@@ -50,7 +50,7 @@ catch (PDOException $ex)
     <?php
     foreach ($db->query('SELECT c.NAME AS Compnent FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID') as $row)
     {
-        echo "<a class=\"dropdown-item\" href=\"#\">" . $row . "</a>";
+        echo "<a class=\"dropdown-item\" href=\"#\">" . $row[0] . "</a>";
     }
      ?>
       
