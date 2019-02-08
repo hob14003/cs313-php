@@ -84,7 +84,7 @@ catch (PDOException $ex)
             <?php
                 foreach ($db->query('SELECT DISTINCT c.NAME FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID') as $row)
                 {
-                    echo "<a class=\"dropdown-item\" href=\"#\">" . $row[0] . "</a>";
+                    echo "<a class=\"dropdown-item\" href=\"FilteredData.php?component=" . $row[0] . "\">" . $row[0] . "</a>";
                 }
                 ?>
           <div class="dropdown-divider"></div>
@@ -100,7 +100,7 @@ catch (PDOException $ex)
             <?php
                 foreach ($db->query('SELECT DISTINCT NAME FROM DOMAIN') as $row)
                 {
-                    echo "<a class=\"dropdown-item\" href=\"#\">" . $row[0] . "</a>";
+                    echo "<a class=\"dropdown-item\" href=\"FilteredData.php?domain=" . $row[0] . "\">" . $row[0] . "</a>";
                 }
                 ?>
           <div class="dropdown-divider"></div>
@@ -127,7 +127,7 @@ catch (PDOException $ex)
       <table class="table">
         <thead>
             <tr>
-            <th scope="col">Component</th>
+            <th scope="col">Characteristic</th>
             <th scope="col">Description</th>
             </tr>
         </thead>
@@ -141,7 +141,7 @@ catch (PDOException $ex)
         </tbody>
           <thead>
             <tr>
-            <th scope="col">Characteristic</th>
+            <th scope="col">Component</th>
             <th scope="col">Description</th>
             </tr>
         </thead>
@@ -160,7 +160,7 @@ catch (PDOException $ex)
       <table class="table">
         <thead>
             <tr>
-            <th scope="col">Component</th>
+            <th scope="col">Characteristic</th>
             <th scope="col">Description</th>
             </tr>
         </thead>
@@ -174,7 +174,7 @@ catch (PDOException $ex)
         </tbody>
         <thead>
             <tr>
-            <th scope="col">Characteristic</th>
+            <th scope="col">Component</th>
             <th scope="col">Description</th>
             </tr>
         </thead>
@@ -193,7 +193,7 @@ catch (PDOException $ex)
       <table class="table">
         <thead>
             <tr>
-            <th scope="col">Component</th>
+            <th scope="col">Characteristic</th>
             <th scope="col">Description</th>
             </tr>
         </thead>
@@ -207,7 +207,7 @@ catch (PDOException $ex)
         </tbody>
         <thead>
             <tr>
-            <th scope="col">Characteristic</th>
+            <th scope="col">Component</th>
             <th scope="col">Description</th>
             </tr>
         </thead>
