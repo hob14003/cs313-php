@@ -65,7 +65,7 @@ catch (PDOException $ex)
     <ul class="navbar-nav mr-auto">
         
       <li class="nav-item">
-        <a class="nav-link" href="3DomainsHome.php">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="3DomainsHome.php">Home</a>
       </li>
         
       <li class="nav-item dropdown">

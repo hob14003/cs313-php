@@ -44,7 +44,7 @@ catch (PDOException $ex)
 }
 ?>
 <!-- LOGO -->
-    <div class="container-fluid no-padding bg-">
+    <div class="container bg-drkCell">
         <img src="images/3Domains.jpg" class="img-fluid" alt="Responsive image">
     </div>
     
