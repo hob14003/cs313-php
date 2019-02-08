@@ -68,7 +68,7 @@ catch (PDOException $ex)
             <?php
                 foreach ($db->query('SELECT DISTINCT c.NAME FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID') as $row)
                 {
-                    echo "<a class=\"dropdown-item\" href=\"#\">" . $row[0] . "</a>";
+                    echo "<a class=\"dropdown-item\" href=\"FilteredData.php?characteristic=" . $row[0] . "\">" . $row[0] . "</a>";
                 }
                 ?>
           <div class="dropdown-divider"></div>
