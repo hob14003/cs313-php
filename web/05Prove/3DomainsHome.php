@@ -49,11 +49,9 @@ catch (PDOException $ex)
     </div>
     
 <!-- CELL IMAGE -->
-<div class="container-fluid no-padding">
-  <div class="row">     
+<div class="container-fluid no-padding center">   
     <div class="col-md-12">
         <img src="images/blueCellsCrp.jpg" class="img-fluid crop" alt="Responsive image">
-    </div>
   </div>
 </div>
     
@@ -235,6 +233,19 @@ catch (PDOException $ex)
     </div>
   </div>
 </div>
+    
+    <!-- CELL FOOTER -->
+<div class="container-fluid no-padding">
+  <div class="row">     
+    <div class="col-md-12">
+        <img src="images/blueCellsSprCrp.jpg" class="img-fluid crop" alt="Responsive image">
+    </div>
+      <div class="col-md-12">
+          <h1 class="bg-dark text-dark">.</h1>
+    </div>
+  </div>
+</div>
+    
     
 </body>
 </html>
