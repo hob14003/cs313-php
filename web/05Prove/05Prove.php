@@ -94,7 +94,7 @@ catch (PDOException $ex)
         
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Components
+          Domains
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <?php
@@ -128,7 +128,8 @@ catch (PDOException $ex)
     
 <div class="container">
   <div class="row">     
-    <div class="col-sm">        
+    <div class="col-sm">
+        <h2>Bacteria</h2>
       <table class="table">
         <thead>
             <tr>
@@ -144,9 +145,24 @@ catch (PDOException $ex)
             }
             ?>           
         </tbody>
+          <thead>
+            <tr>
+            <th scope="col">Characteristic</th>
+            <th scope="col">Description</th>
+            </tr>
+        </thead>
+          <tbody>      
+            <?php
+            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE d.ID = 1;') as $row)
+            {
+                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "<td></tr>";
+            }
+            ?>           
+        </tbody>
       </table>
     </div>     
-      <div class="col-sm">        
+      <div class="col-sm">    
+       <h2>Archaea</h2>
       <table class="table">
         <thead>
             <tr>
@@ -162,9 +178,24 @@ catch (PDOException $ex)
             }
             ?>           
         </tbody>
+        <thead>
+            <tr>
+            <th scope="col">Characteristic</th>
+            <th scope="col">Description</th>
+            </tr>
+        </thead>
+          <tbody>      
+            <?php
+            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE d.ID = 2;') as $row)
+            {
+                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "<td></tr>";
+            }
+            ?>           
+        </tbody>
       </table>
     </div>      
-      <div class="col-sm">     
+      <div class="col-sm">   
+        <h2>Eukarya</h2>
       <table class="table">
         <thead>
             <tr>
@@ -179,6 +210,20 @@ catch (PDOException $ex)
                 echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "<td></tr>";
             }
             ?>         
+        </tbody>
+        <thead>
+            <tr>
+            <th scope="col">Characteristic</th>
+            <th scope="col">Description</th>
+            </tr>
+        </thead>
+          <tbody>      
+            <?php
+            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE d.ID = 1;') as $row)
+            {
+                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "<td></tr>";
+            }
+            ?>           
         </tbody>
       </table>
     </div>
