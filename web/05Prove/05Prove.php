@@ -98,7 +98,7 @@ catch (PDOException $ex)
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           
             <?php
-                foreach ($db->query('SELECT DISTINCT d.NAME FROM DOMAIN') as $row)
+                foreach ($db->query('SELECT DISTINCT NAME FROM DOMAIN') as $row)
                 {
                     echo "<a class=\"dropdown-item\" href=\"#\">" . $row[0] . "</a>";
                 }
