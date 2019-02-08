@@ -49,7 +49,7 @@ catch (PDOException $ex)
 <div class="container-fluid no-padding">
   <div class="row">     
     <div class="col-md-12">
-        <img src="images/blueCells.jpg" class="img-fluid crop" alt="Responsive image">
+        <img src="images/blueCellsCrp.jpg" class="img-fluid crop" alt="Responsive image">
     </div>
   </div>
 </div>
