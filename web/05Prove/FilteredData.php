@@ -263,7 +263,7 @@ catch (PDOException $ex)
     <?php
         if($_GET["search"]) {
             $find = filter_var($_GET["search"]);
-            echo $find . "   
+            echo "   
                 <div class=\"container\">
                 <div class=\"row\">     
                 <div class=\"col-sm\">
@@ -302,7 +302,7 @@ catch (PDOException $ex)
                     </thead>
                     <tbody>";
             
-                    foreach ($db->query("SELECT d.NAME, c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE d.NAME = " . "'" . $find . "';") as $row)
+                    foreach ($db->query("SELECT d.NAME, c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE c.NAME = " . "'" . $find . "';") as $row)
                     {
                         echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td></tr>";
                     }
@@ -327,7 +327,7 @@ catch (PDOException $ex)
                     </thead>
                     <tbody>";
             
-                    foreach ($db->query("SELECT d.NAME, c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE d.NAME = " . "'" . $find . "';") as $row)
+                    foreach ($db->query("SELECT d.NAME, c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE c.NAME = " . "'" . $find . "';") as $row)
                     {
                         echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td></tr>";
                     }
