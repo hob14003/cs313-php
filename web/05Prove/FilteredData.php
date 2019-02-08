@@ -121,7 +121,7 @@ catch (PDOException $ex)
     
     <?php
         if($_GET["characteristic"]) {
-            echo "<h1>Found " . $_GET['characteristic'] . "</h1><br>    
+            echo "    
                 <div class=\"container\">
                 <div class=\"row\">     
                 <div class=\"col-sm\">
@@ -130,7 +130,6 @@ catch (PDOException $ex)
                     <thead>
                         <tr>
                         <th scope=\"col\">Domain</th>
-                        <th scope=\"col\">Characteristic</th>
                         <th scope=\"col\">Description</th>
                         </tr>
                     </thead>
@@ -147,6 +146,76 @@ catch (PDOException $ex)
                   </div>";
         }
     ?>
+    
+    <?php
+        if($_GET["component"]) {
+            echo "   
+                <div class=\"container\">
+                <div class=\"row\">     
+                <div class=\"col-sm\">
+                <h2>" . $_GET['component'] . "</h2>
+                <table class=\"table\">
+                    <thead>
+                        <tr>
+                        <th scope=\"col\">Domain</th>
+                        <th scope=\"col\">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+            
+                    foreach ($db->query("SELECT d.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE c.NAME = " . "'" . $_GET["component"] . "';") as $row)
+                    {
+                        echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td></tr>";
+                    }
+            echo "</tbody>
+                  </table>
+                  </div>
+                  </div>
+                  </div>";
+        }
+    ?>
+    
+    <?php
+        if($_GET["domain"]) {
+            echo "   
+                <div class=\"container\">
+                <div class=\"row\">     
+                <div class=\"col-sm\">
+                <h2>" . $_GET['domain'] . "</h2>
+                <table class=\"table\">
+                    <thead>
+                        <tr>
+                        <th scope=\"col\">Domain</th>
+                        <th scope=\"col\">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+            
+                    foreach ($db->query("SELECT d.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE D.NAME = " . "'" . $_GET["domain"] . "';") as $row)
+                    {
+                        echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td></tr>";
+                    }
+            echo "</tbody>
+                  <thead>
+                        <tr>
+                        <th scope=\"col\">Domain</th>
+                        <th scope=\"col\">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+            
+                    foreach ($db->query("SELECT d.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE d.NAME = " . "'" . $_GET["domain"] . "';") as $row)
+                    {
+                        echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td></tr>";
+                    }
+            echo "</tbody>
+                  </table>
+                  </div>
+                  </div>
+                  </div>";
+        }
+    ?>
+    
     
     
 </body>

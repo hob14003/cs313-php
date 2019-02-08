@@ -133,7 +133,7 @@ catch (PDOException $ex)
         </thead>
         <tbody>      
             <?php
-            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE d.ID = 1;') as $row)
+            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE d.ID = 1;') as $row)
             {
                 echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "<td></tr>";
             }
@@ -147,7 +147,7 @@ catch (PDOException $ex)
         </thead>
           <tbody>      
             <?php
-            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE d.ID = 1;') as $row)
+            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE d.ID = 1;') as $row)
             {
                 echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "<td></tr>";
             }
@@ -166,7 +166,7 @@ catch (PDOException $ex)
         </thead>
         <tbody>       
             <?php
-            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE d.ID = 2;') as $row)
+            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE d.ID = 2;') as $row)
             {
                 echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "<td></tr>";
             }
@@ -180,7 +180,7 @@ catch (PDOException $ex)
         </thead>
           <tbody>      
             <?php
-            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE d.ID = 2;') as $row)
+            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE d.ID = 2;') as $row)
             {
                 echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "<td></tr>";
             }
@@ -199,7 +199,7 @@ catch (PDOException $ex)
         </thead>
         <tbody>     
             <?php
-            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE d.ID = 3;') as $row)
+            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE d.ID = 3;') as $row)
             {
                 echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "<td></tr>";
             }
@@ -213,7 +213,7 @@ catch (PDOException $ex)
         </thead>
           <tbody>      
             <?php
-            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE d.ID = 1;') as $row)
+            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE d.ID = 1;') as $row)
             {
                 echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "<td></tr>";
             }
