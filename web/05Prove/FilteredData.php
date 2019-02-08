@@ -144,9 +144,17 @@ catch (PDOException $ex)
                     </thead>
                     <tbody>";
             
-                    foreach ($db->query("SELECT d.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE c.NAME = " . "'" . $_GET["characteristic"] . "';") as $row)
-                    {
-                        echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td></tr>";
+                    if($_GET["characteristic"] == "all") {
+                        foreach ($db->query("SELECT d.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID;") as $row)
+                        {
+                            echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td></tr>";
+                        }
+                    }
+                    else {
+                        foreach ($db->query("SELECT d.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE c.NAME = " . "'" . $_GET["characteristic"] . "';") as $row)
+                        {
+                            echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td></tr>";
+                        }
                     }
             echo "</tbody>
                   </table>

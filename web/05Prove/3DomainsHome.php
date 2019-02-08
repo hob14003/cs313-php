@@ -82,7 +82,7 @@ catch (PDOException $ex)
                 }
                 ?>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">All</a>
+          <a class="dropdown-item" href="FilteredData.php?characteristic=all">All</a>
         </div>
       </li>
         
@@ -98,7 +98,7 @@ catch (PDOException $ex)
                 }
                 ?>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">All</a>
+          <a class="dropdown-item" href="FilteredData.php?component=all">All</a>
         </div>
       </li>
         
@@ -114,7 +114,7 @@ catch (PDOException $ex)
                 }
                 ?>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">All</a>
+          <a class="dropdown-item" href="3DomainsHome.php">All</a>
         </div>
       </li>
         
