@@ -19,7 +19,6 @@ session_start();
     
 </head>
 <body>
-    <h1>3Domains</h1>
 <?php
 try
 {
@@ -44,7 +43,11 @@ catch (PDOException $ex)
   die();
 }
 ?>
-
+<!-- LOGO -->
+    <div class="container-fluid no-padding bg-">
+        <img src="images/3Domains.jpg" class="img-fluid" alt="Responsive image">
+    </div>
+    
 <!-- CELL IMAGE -->
 <div class="container-fluid no-padding">
   <div class="row">     
