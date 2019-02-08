@@ -1,3 +1,16 @@
 .crop {
     height:400px;
+    width:100%;
+}
+
+.bg-drkCell {
+    background-color: #296696;
+}
+
+.bg-midCell {
+    background-color: #4095DA;
+}
+
+.bg-lightCell {
+    background-color: #4AF8F0;
 }
