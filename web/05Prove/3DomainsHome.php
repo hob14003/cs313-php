@@ -51,7 +51,7 @@ catch (PDOException $ex)
 <!-- CELL IMAGE -->
 <div class="container-fluid no-padding center">   
     <div class="col-md-12">
-        <img src="images/blueCellsCrp.jpg" class="img-fluid crop" alt="Responsive image">
+        <img src="images/blueCellsCrp.jpg" class="img-fluid crop height400" alt="Responsive image">
   </div>
 </div>
     

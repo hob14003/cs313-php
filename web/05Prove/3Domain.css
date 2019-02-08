@@ -2,6 +2,10 @@
     width:100%;
 }
 
+.height400 {
+    height:400px;
+}
+
 .bg-drkCell {
     background-color: #296696;
 }
