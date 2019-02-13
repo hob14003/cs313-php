@@ -27,9 +27,6 @@ catch (PDOException $ex)
   die();
 }
     
-  $db->query('SELECT * FROM SCRIPTURES')  
-    
-    
 foreach ($db->query('SELECT * FROM SCRIPTURES') as $row)
   {
       echo '<strong>' . $row[1] . ' ' . $row[2] . ':' . $row[3] . '</strong>' . ' - "' . $row[4] . '"';
@@ -38,7 +35,7 @@ foreach ($db->query('SELECT * FROM SCRIPTURES') as $row)
 
 ?>
     
-<form action=".php">
+<form action="06Teach.php" method="post">
   Book:<br>
   <input type="text" name="book" value="">
   <br>
@@ -51,14 +48,10 @@ Verse:<br>
 Content:<textarea name="content" rows="10" cols="30">Insert scripture content here</textarea>
   <br>
 <?php
-For each($topics as $topic) {
-
-    $topic_id = $topic[‘id’];
-    $topic_name = $topic[‘name’];
-
-    //echo "<input type =\”checkbox\” name=\”topic\” value =\”topic\”>$topic_name<br>”;";
-
-    }
+foreach ($db->query('SELECT Name FROM Topic') as $row)
+  {
+        echo "<input type =\”checkbox\” name=\”topic\” value =\”" . $row[0] . "\”><br>”;";
+  }
 ?>
    <input type="submit" value="Submit">
 </form> 
