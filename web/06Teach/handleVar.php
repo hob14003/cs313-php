@@ -5,7 +5,6 @@ $verse = $_POST['verse'];
 $content = $_POST['content'];
 $topicIds = $_POST['topic'];
 
-<?php
 try
 {
   $dbUrl = getenv('DATABASE_URL');

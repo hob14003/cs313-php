@@ -45,12 +45,12 @@ foreach ($db->query('SELECT * FROM SCRIPTURES') as $row)
 Verse:<br>
   <input type="text" name="verse" value="">
   <br><br>
-Content:<textarea name="content" rows="10" cols="30">Insert scripture content here</textarea>
+Content:<textarea name="content" rows="10" cols="30"></textarea>
   <br>
 <?php
 foreach ($db->query('SELECT Name FROM Topic') as $row)
   {
-        echo "<input type=\”checkbox\” name=\”topic\” value=\”" . $row[0] . "\”><br>”;";
+        echo "<input type=\"checkbox\" name=\"topic\" value=\"" .$row[0] . "\"><br>\";";
   }
 ?>
    <input type="submit" value="Submit">
