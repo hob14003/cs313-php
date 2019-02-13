@@ -35,7 +35,7 @@ foreach ($db->query('SELECT * FROM SCRIPTURES') as $row)
 
 ?>
     
-<form action="06Teach.php" method="post">
+<form action="handleVar.php" method="post">
   Book:<br>
   <input type="text" name="book" value="">
   <br>
@@ -50,7 +50,7 @@ Content:<textarea name="content" rows="10" cols="30"></textarea>
 <?php
 foreach ($db->query('SELECT Name FROM Topic') as $row)
   {
-        echo "<input type=\"checkbox\" name=\"topic\" value=\"" .$row[0] . "\"><br>\";";
+        echo "<p>" . $row[0] . "</p><input type=\"checkbox\" name=\"topic\" value=\"" .$row[0] . "\"><br>\";";
   }
 ?>
    <input type="submit" value="Submit">
