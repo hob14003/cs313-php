@@ -40,16 +40,16 @@ try
 	$statement->bindValue(':content', $content);
 	$statement->execute();
 	
-	//$scriptureId = $db->lastInsertId("scripture_id_seq");
+	$scriptureId = $db->lastInsertId("scripture_id_seq");
 	
 	foreach ($topicIds as $topicId)
 	{
-		//echo "ScriptureId: $scriptureId, topicId: $topicId";
+		echo "ScriptureId: $scriptureId, topicId: $topicId";
 		
-		$statement = $db->prepare('INSERT INTO m2m(topic_Id, scriptures_Id) VALUES(:topic_Id, :scriptures_Id)');
+		$statement = $db->prepare('INSERT INTO m2m(topic_Id, scriptures_Id) VALUES(:topicId, :scriptureId)');
 		
-		$statement->bindValue(':scriptures_Id', $scriptures_Id);
-		$statement->bindValue(':topic_Id', $topic_Id);
+		$statement->bindValue(':scriptureId', $scripturesId);
+		$statement->bindValue(':topicId', $topicId);
 		$statement->execute();
 	}
 }
