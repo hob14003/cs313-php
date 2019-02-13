@@ -43,7 +43,7 @@ try
 	//$scriptureId = $db->lastInsertId("scripture_id_seq");
 	
    // $lastScripId = $db->prepare('SELECT ID FROM scriptures where Chapter = ' . $chapter . ' AND verse = ' . $verse . ' AND book = ' . );
-    $scriptureId = $db->lastInsertId('SELECT MAX(ID) FROM SCRIPTURES');
+    $scriptureId = $db->prepare('SELECT MAX(ID) FROM SCRIPTURES');
     
 	foreach ($topicIds as $topicId)
 	{
