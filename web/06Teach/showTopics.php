@@ -56,7 +56,7 @@ try
 		echo 'Topics: ';
 		
 		$stmtTopics = $db->prepare('SELECT name FROM topic t'
-			. ' INNER JOIN m2m st ON st.topicId = t.id'
+			. ' INNER JOIN m2m st ON st.topic_Id = t.id'
 			. ' WHERE st.scriptures_Id = :scriptureId');
 		$stmtTopics->bindValue(':scriptureId', $row['id']);
 		$stmtTopics->execute();
