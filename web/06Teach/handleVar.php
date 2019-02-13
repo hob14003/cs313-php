@@ -40,8 +40,11 @@ try
 	$statement->bindValue(':content', $content);
 	$statement->execute();
 	
-	$scriptureId = $db->lastInsertId("scripture_id_seq");
+	//$scriptureId = $db->lastInsertId("scripture_id_seq");
 	
+   // $lastScripId = $db->prepare('SELECT ID FROM scriptures where Chapter = ' . $chapter . ' AND verse = ' . $verse . ' AND book = ' . );
+    $scriptureId = $db->lastInsertId('SELECT MAX(ID) FROM SCRIPTURES');
+    
 	foreach ($topicIds as $topicId)
 	{
 		echo "ScriptureId: $scriptureId, topicId: $topicId";
