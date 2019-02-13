@@ -50,7 +50,7 @@ Content:<textarea name="content" rows="10" cols="30">Insert scripture content he
 <?php
 foreach ($db->query('SELECT Name FROM Topic') as $row)
   {
-        echo "<input type =\”checkbox\” name=\”topic\” value =\”" . $row[0] . "\”><br>”;";
+        echo "<input type=\”checkbox\” name=\”topic\” value=\”" . $row[0] . "\”><br>”;";
   }
 ?>
    <input type="submit" value="Submit">

@@ -44,17 +44,9 @@ catch (PDOException $ex)
 <?php
 try
 {
-	// For this example, we are going to make a call to the DB to get the scriptures
-	// and then for each one, make a separate call to get its topics.
-	// This could be done with a single query (and then more processing of the resultset
-	// afterward) as follows:
-	//	$statement = $db->prepare('SELECT book, chapter, verse, content, t.name FROM scripture s'
-	//	. ' INNER JOIN scripture_topic st ON s.id = st.scriptureId'
-	//	. ' INNER JOIN topic t ON st.topicId = t.id');
-	// prepare the statement
 	$statement = $db->prepare('SELECT id, book, chapter, verse, content FROM scripture');
 	$statement->execute();
-	// Go through each result
+	
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
 		echo '<p>';
@@ -62,13 +54,13 @@ try
 		echo $row['verse'] . '</strong>' . ' - ' . $row['content'];
 		echo '<br />';
 		echo 'Topics: ';
-		// get the topics now for this scripture
+		
 		$stmtTopics = $db->prepare('SELECT name FROM topic t'
 			. ' INNER JOIN scripture_topic st ON st.topicId = t.id'
 			. ' WHERE st.scriptureId = :scriptureId');
 		$stmtTopics->bindValue(':scriptureId', $row['id']);
 		$stmtTopics->execute();
-		// Go through each topic in the result
+		
 		while ($topicRow = $stmtTopics->fetch(PDO::FETCH_ASSOC))
 		{
 			echo $topicRow['name'] . ' ';
