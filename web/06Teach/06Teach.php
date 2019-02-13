@@ -38,7 +38,6 @@ foreach ($db->query('SELECT * FROM SCRIPTURES') as $row)
 
 ?>
     
-    
 <form action=".php">
   Book:<br>
   <input type="text" name="book" value="">
@@ -54,12 +53,12 @@ Content:<textarea name="content" rows="10" cols="30">Insert scripture content he
 <?php
 For each($topics as $topic) {
 
-$topic_id = $topic[‘id’];
-$topic_name = $topic[‘name’];
+    $topic_id = $topic[‘id’];
+    $topic_name = $topic[‘name’];
 
-echo "<input type =\”checkbox\” name=\”topic\” value =\”topic\”>$topic_name<br>”;";
+    //echo "<input type =\”checkbox\” name=\”topic\” value =\”topic\”>$topic_name<br>”;";
 
-}
+    }
 ?>
    <input type="submit" value="Submit">
 </form> 
