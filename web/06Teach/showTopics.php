@@ -44,7 +44,7 @@ catch (PDOException $ex)
 <?php
 try
 {
-	$statement = $db->prepare('SELECT id, book, chapter, verse, content FROM scripture');
+	$statement = $db->prepare('SELECT id, book, chapter, verse, content FROM scriptures');
 	$statement->execute();
 	
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
@@ -56,8 +56,8 @@ try
 		echo 'Topics: ';
 		
 		$stmtTopics = $db->prepare('SELECT name FROM topic t'
-			. ' INNER JOIN scripture_topic st ON st.topicId = t.id'
-			. ' WHERE st.scriptureId = :scriptureId');
+			. ' INNER JOIN m2m st ON st.topicId = t.id'
+			. ' WHERE st.scriptures_Id = :scriptureId');
 		$stmtTopics->bindValue(':scriptureId', $row['id']);
 		$stmtTopics->execute();
 		
