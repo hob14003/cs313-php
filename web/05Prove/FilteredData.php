@@ -123,8 +123,6 @@ catch (PDOException $ex)
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="FilteredData.php?database=Insert">Insert</a>
-            <a class="dropdown-item" href="FilteredData.php?database=Edit">Edit</a>
-            <a class="dropdown-item" href="FilteredData.php?database=Delete">Delete</a>
         </div>
       </li>  
     </ul>

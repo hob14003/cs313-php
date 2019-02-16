@@ -34,14 +34,12 @@ catch (PDOException $ex)
             $dbCmd = filter_var($_GET["database"]);
         //INSERT
          if($dbCmd == "Insert"){
-             echo "<script>alert(\"entered if2\")</script>";
              $charOrComp = filter_var($_POST["charOrComp"]);
              $domains = $_POST["domains"];
              $name = filter_var($_POST["name"]);
              $desc = filter_var($_POST["desc"]);
                 echo "<p>charOrComp = " . $charOrComp . "<br>domains = " . $domains . "<br>name = " . $name . "<br>desc = " . $desc . "</p>";        
              foreach($domains as $domain) {
-                 echo "<script>alert(\"entered domain loop\")</script>";
                  echo "INSERT INTO " . $charOrComp . "(DOMAIN_ID, NAME, DESCRIPTION) VALUES (" . $domain . ", " . $name . ", " . $desc . ");";
              $db->query("INSERT INTO " . $charOrComp . "(DOMAIN_ID, NAME, DESCRIPTION) VALUES ('" . $domain . "', '" . $name . "', '" . $desc . "');");
              }
@@ -65,7 +63,7 @@ catch (PDOException $ex)
             $db->query("UPDATE " . $table . " SET NAME = '" . $name. "', DESCRIPTION = '" . $desc . "' WHERE ID = '" . $id. "';");
         }
     }
-//header("Location: 3DomainsHome.php");
+header("Location: 3DomainsHome.php");
 ?>
     </body>
 </html>
