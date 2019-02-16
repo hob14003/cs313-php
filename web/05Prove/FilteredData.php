@@ -135,6 +135,58 @@ catch (PDOException $ex)
   </div>
 </nav>
     
+    <!-- TABLES -->
+    
+    <!-- Characteristic View -->
+    <?php
+
+        if($_GET["characteristic"]) {
+
+            echo "    
+                <div class=\"container\">
+                <div class=\"row\">     
+                <div class=\"col-sm\">
+                <h2>" . $_GET['characteristic'] . "</h2>
+                <table class=\"table\">
+                    <thead>
+                        <tr>";
+            if($_GET["characteristic"] == "All Characteristics") {
+                echo"
+                        <th scope=\"col\">Domain</th>
+                        <th scope=\"col\">Characteristic</th>
+                        <th scope=\"col\">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+            
+                    
+                        foreach ($db->query("SELECT d.NAME, c.NAME, c.DESCRIPTION c.ID FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID;") as $row)
+                        {
+                            echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td></tr>";
+                        }
+                    }
+                else {
+                    echo "
+                        <th scope=\"col\">Domain</th>
+                        <th scope=\"col\">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+                        foreach ($db->query("SELECT d.NAME, c.DESCRIPTION, c.ID FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE c.NAME = " . "'" . $_GET["characteristic"] . "';") as $row)
+                        {
+                            echo "<tr><td>" . $row[0] . "</td>
+                            <td>" . $row[1] . "</td>
+                            <td><a class=\"btn btn-primary\" href=\"FilteredData.php?database=Edit&table=CHARACTERISTIC&id=" . $row[2] . "&name=" . $row[0] . "&desc=" . $row[1] . "\" role=\"button\">Edit</a></td>
+                            <td> <a class=\"btn btn-primary\" href=\"HandleSQL.php?database=Delete&table=CHARACTERISTIC&id=" . $row[2] . "\" role=\"button\">Delete</a></td></tr>";               
+                        }
+                    }
+            echo "</tbody>
+                  </table>
+                  </div>
+                  </div>
+                  </div>";
+        }
+    ?>
     
     
     
