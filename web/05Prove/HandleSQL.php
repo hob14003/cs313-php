@@ -54,6 +54,16 @@ catch (PDOException $ex)
             echo "DELETE FROM " . $table . " WHERE ID = '" . $id. "';";
             $db->query("DELETE FROM " . $table . " WHERE ID = '" . $id. "';");
         }
+        //EDIT
+        if($dbCmd == "Edit"){
+            $name = filter_var($_POST["name"]);
+            $desc = filter_var($_POST["desc"]);
+            $table = filter_var($_GET["table"]);
+            $id = filter_var($_GET["id"]);
+            echo "<p>table = " . $table . "<br>id = " . $id . "</p>"; 
+            echo "DELETE FROM " . $table . " WHERE ID = '" . $id. "';";
+            $db->query("UPDATE " . $table . "SET NAME = '" . $name. "', DESCRIPTION = '" . $desc . "' WHERE ID = '" . $id. "';");
+        }
     }
 //header("Location: 3DomainsHome.php");
 ?>
