@@ -364,9 +364,9 @@ catch (PDOException $ex)
                 echo "
                 <form action=\"HandleSQL.php?database=Insert\" method=\"post\">
                     
-                    Domain: <br><input type=\"checkbox\" name=\"domains[]\"   value=\"1\">Bacteria<br>
-                    <input type=\"checkbox\" name=\"domains[]\" value=\"2\">Archaea<br>
-                    <input type=\"checkbox\" name=\"domains[]\" value=\"3\">Eukarya<br>
+                    Domain: <br><input type=\"checkbox\" name=\"domains[]\"   value=1>Bacteria<br>
+                    <input type=\"checkbox\" name=\"domains[]\" value=2>Archaea<br>
+                    <input type=\"checkbox\" name=\"domains[]\" value=3>Eukarya<br>
                 
                     Type: <br><input type=\"radio\" name=\"charOrComp\" value=\"CHARACTERISTIC\">Characteristic<br>
                     <input type=\"radio\" name=\"charOrComp\" value=\"COMPONENT\">Component<br>
