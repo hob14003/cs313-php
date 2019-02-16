@@ -380,7 +380,7 @@ catch (PDOException $ex)
 				$id = filter_var($_GET["id"]);
                 $table = filter_var($_GET["table"]);
                 $desc = filter_var($_GET["desc"]);
-                $ name = filter_var($_GET["name"]);
+                $name = filter_var($_GET["name"]);
                                 
                 echo "
                 <form action=\"HandleSQL.php?database=Edit\" method=\"post\">
