@@ -175,12 +175,12 @@ catch (PDOException $ex)
                         </tr>
                     </thead>
                     <tbody>";
-                        foreach ($db->query("SELECT d.NAME, c.DESCRIPTION, c.ID c.DOMAIN_ID FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE c.NAME = " . "'" . $_GET["characteristic"] . "';") as $row)
+                        foreach ($db->query("SELECT d.NAME, c.DESCRIPTION, c.ID FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE c.NAME = " . "'" . $_GET["characteristic"] . "';") as $row)
                         {
                             echo "<script>alert('entered foreach in char db')</script>";
                             echo "<tr><td>" . $row[0] . "</td>
                             <td>" . $row[1] . "</td>
-                            <td><a class=\"btn btn-primary\" href=\"FilteredData.php?database=Edit&table=CHARACTERISTIC&id=" . $row[2] . "&name=" . $row[0] . "&desc=" . $row[1] . "&domain=" . $row[3] . "\" role=\"button\">Edit</a></td>
+                            <td><a class=\"btn btn-primary\" href=\"FilteredData.php?database=Edit&table=CHARACTERISTIC&id=" . $row[2] . "&name=" . $row[0] . "&desc=" . $row[1] . "\" role=\"button\">Edit</a></td>
                             <td> <a class=\"btn btn-primary\" href=\"HandleSQL.php?database=Delete&table=CHARACTERISTIC&id=" . $row[2] . "\" role=\"button\">Delete</a></td></tr>";               
                         }
                     }
@@ -400,9 +400,6 @@ catch (PDOException $ex)
                     Description: <input type=\"text\" name=\"desc\" value=\"" . $desc . "\"><br>
                     <input type=\"submit\" value=\"Submit\">
                 </form>"; 
-            }
-            if($dbCmd == "delete"){
-                
             }
             echo "    
                 </div>
