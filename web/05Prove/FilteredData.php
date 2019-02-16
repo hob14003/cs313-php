@@ -209,7 +209,7 @@ catch (PDOException $ex)
                             echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td></tr>";
                         }
                     }
-                    else {
+              else {
                     echo"
                         <th scope=\"col\">Domain</th>
                         <th scope=\"col\">Description</th>
@@ -377,7 +377,22 @@ catch (PDOException $ex)
                 </form>";                
             }
             if($dbCmd == "Edit"){
-
+				$id = filter_var($_GET["id"]);
+                $table = filter_var($_GET["table"]);
+                $desc = filter_var($_GET["desc"]);
+                $ name = filter_var($_GET["name"]);
+                                
+                echo "
+                <form action=\"HandleSQL.php?database=Edit\" method=\"post\">
+                    
+                    Domain: <br><input type=\"checkbox\" name=\"domains[]\"   value=1>Bacteria<br>
+                    <input type=\"checkbox\" name=\"domains[]\" value=2>Archaea<br>
+                    <input type=\"checkbox\" name=\"domains[]\" value=3>Eukarya<br>
+                    
+                    Name: <input type=\"text\" name=\"name\" value=\"" . $name . "\"><br>
+                    Description: <input type=\"text\" name=\"desc\" value=\"" . $desc . "\"><br>
+                    <input type=\"submit\" value=\"Submit\">
+                </form>"; 
             }
             if($dbCmd == "delete"){
                 
