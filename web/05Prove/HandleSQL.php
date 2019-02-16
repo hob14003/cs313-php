@@ -31,11 +31,11 @@ catch (PDOException $ex)
             $dbCmd = filter_var($_GET["database"]);
          if($dbCmd == "Insert"){
              echo "<script>alert(\"entered if2\")</script>";
-             $charOrComp = filter_var($_GET["charOrComp"]);
-             $domains = filter_var($_GET["domains"]);
-             $name = filter_var($_GET["name"]);
-             $desc = filter_var($_GET["desc"]);
-             
+             $charOrComp = filter_var($_POST["charOrComp"]);
+             $domains = filter_var($_POST["domains"]);
+             $name = filter_var($_POST["name"]);
+             $desc = filter_var($_POST["desc"]);
+                          
              foreach($domains as $domain) {
                  echo "<script>alert(\"entered domain loop\")</script>";
              $db->query("INSERT INTO " . $charOrComp . "(DOMAIN_ID, NAME, DESCRIPTION) VALUES (" . $domain . ", " . $name . ", " . $desc . ");");
