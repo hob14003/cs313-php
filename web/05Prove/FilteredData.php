@@ -175,7 +175,7 @@ catch (PDOException $ex)
                         {
                             echo "<tr><td>" . $row[0] . "</td>
                             <td>" . $row[1] . "</td>
-                            <td><a class=\"btn btn-primary\" href=\"FilteredData?database=Edit&table=CHARACTERISTIC&id=" . $row[2] . "&name=" . $row[0] . "&desc=" . $row[1] . "\" role=\"button\">Edit</a></td>
+                            <td><a class=\"btn btn-primary\" href=\"FilteredData.php?database=Edit&table=CHARACTERISTIC&id=" . $row[2] . "&name=" . $row[0] . "&desc=" . $row[1] . "\" role=\"button\">Edit</a></td>
                             <td> <a class=\"btn btn-primary\" href=\"HandleSQL.php?database=Delete&table=CHARACTERISTIC&id=" . $row[2] . "\" role=\"button\">Delete</a></td></tr>";               
                         }
                     }
