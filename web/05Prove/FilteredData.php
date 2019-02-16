@@ -272,7 +272,18 @@ catch (PDOException $ex)
                         </tr>
                     </thead>
                     <tbody>";
-            
+            echo "<td>SELECT c.NAME, c.DESCRIPTION, c.ID FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE D.NAME = '" . $_GET["domain"] . "';</td>";
+            /*
+                    foreach ($db->query("SELECT c.NAME, c.DESCRIPTION, c.ID FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE D.NAME = '" . $_GET["domain"] . "';") as $row)
+                    {
+                        echo "<tr><td>" . $row[0] . "</td>
+                        <td>" . $row[1] . "</td>
+                        <td><a class=\"btn btn-primary\" href=\"FilteredData.php?database=Edit&table=CHARACTERISTIC&id=" . $row[2] . "&name=" . $_GET["domain"] . "&desc=" . $row[1] . "\" role=\"button\">Edit</a></td>
+                            <td> <a class=\"btn btn-primary\" href=\"HandleSQL.php?database=Delete&table=CHARACTERISTIC&id=" . $row[2] . "\" role=\"button\">Delete</a></td>
+                            </tr>";
+
+                    }
+                    */
                     
             echo "</tbody>
                   <thead>
