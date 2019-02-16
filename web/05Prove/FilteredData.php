@@ -255,56 +255,7 @@ catch (PDOException $ex)
     
     
     
-    <!-- Domain View -->
-    <?php
-        if($_GET["domain"]) {
-            echo "   
-                <div class=\"container\">
-                <div class=\"row\">     
-                <div class=\"col-sm\">
-                <h2>" . $_GET['domain'] . "</h2>
-                <table class=\"table\">
-                    <thead>
-                        <tr>
-                        <th scope=\"col\">Characteristic</th>
-                        <th scope=\"col\">Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>";
-            
-                    foreach ($db->query("SELECT c.NAME, c.DESCRIPTION, c.ID FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE D.NAME = " . "'" . $_GET["domain"] . "';") as $row)
-                    {
-                        echo "<tr><td>" . $row[0] . "</td>
-                        <td>" . $row[1] . "</td>
-                        <td><a class=\"btn btn-primary\" href=\"FilteredData.php?database=Edit&table=CHARACTERISTIC&id=" . $row[2] . "&name=" . $_GET["domain"] . "&desc=" . $row[1] . "\" role=\"button\">Edit</a></td>
-                            <td> <a class=\"btn btn-primary\" href=\"HandleSQL.php?database=Delete&table=CHARACTERISTIC&id=" . $row[2] . "\" role=\"button\">Delete</a></td>
-                            </tr>";
-
-                    }
-            echo "</tbody>
-                  <thead>
-                        <tr>
-                        <th scope=\"col\">Component</th>
-                        <th scope=\"col\">Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>";
-            
-                    foreach ($db->query("SELECT c.NAME, c.DESCRIPTION, c.ID FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE d.NAME = " . "'" . $_GET["domain"] . "';") as $row)
-                    {
-                        echo "<tr><td>" . $row[0] . "</td>
-                        <td>" . $row[1] . "</td>
-                        <td><a class=\"btn btn-primary\" href=\"FilteredData.php?database=Edit&table=COMPONENT&id=" . $row[2] . "&name=" . $_GET["domain"] . "&desc=" . $row[1] . "\" role=\"button\">Edit</a></td>
-                        <td> <a class=\"btn btn-primary\" href=\"HandleSQL.php?database=Delete&table=COMPONENT&id=" . $row[2] . "\" role=\"button\">Delete</a></td>
-                            </tr>"
-                    }
-            echo "</tbody>
-                  </table>
-                  </div>
-                  </div>
-                  </div>";
-        }
-    ?>
+    
     
     <!-- Search View -->
     <?php
