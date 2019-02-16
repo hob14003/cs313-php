@@ -29,10 +29,7 @@ catch (PDOException $ex)
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
-                     echo "<script>alert(\"entered\")</script>";
-
     if($_GET["database"]) {
-                     echo "<script>alert(\"entered if1\")</script>";
 
             $dbCmd = filter_var($_GET["database"]);
         //INSERT
@@ -53,6 +50,7 @@ catch (PDOException $ex)
         if($dbCmd == "Delete"){
             $table = filter_var($_GET["table"]);
             $id = filter_var($_GET["id"]);
+            echo "<p>table = " . $table . "<br>id = " . $id . "</p>"; 
             $db->query("DELETE FROM " . $table . " WHERE ID = '" . $id. "');");
         }
     }
