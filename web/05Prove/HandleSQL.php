@@ -23,6 +23,7 @@ catch (PDOException $ex)
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
+                     echo "<script>alert(\"entered\")</script>";
 
     if($_GET["database"]) {
                      echo "<script>alert(\"entered if1\")</script>";
@@ -30,10 +31,10 @@ catch (PDOException $ex)
             $dbCmd = filter_var($_GET["database"]);
          if($dbCmd == "Insert"){
              echo "<script>alert(\"entered if2\")</script>";
-             $charOrComp = $_GET["charOrComp"];
-             $domains = $_GET["domains"];
-             $name = $_GET["name"];
-             $desc = $_GET["desc"];
+             $charOrComp = filter_var($_GET["charOrComp"]);
+             $domains = filter_var($_GET["domains"]);
+             $name = filter_var($_GET["name"]);
+             $desc = filter_var($_GET["desc"]);
              
              foreach($domains as $domain) {
                  echo "<script>alert(\"entered domain loop\")</script>";

@@ -363,8 +363,6 @@ catch (PDOException $ex)
             if($dbCmd == "Insert"){
                 echo "
                 <form action=\"HandleSQL.php?database=Insert\" method=\"post\">
-                
-                    <input name=\"dataHandle\" value=\"" . $dbCmd . "\">
                     
                     Domain: <br><input type=\"checkbox\" name=\"domains[]\"   value=1>Bacteria<br>
                     <input type=\"checkbox\" name=\"domains[]\" value=2>Archaea<br>
