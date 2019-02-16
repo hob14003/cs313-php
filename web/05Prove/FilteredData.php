@@ -190,6 +190,7 @@ catch (PDOException $ex)
     
         <!-- Component View -->
     <?php
+
         if($_GET["component"]) {
 
             echo "    
@@ -215,25 +216,19 @@ catch (PDOException $ex)
                             echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td></tr>";
                         }
                     }
-                    }
-              else {
-                    echo"
+                else {
+                    echo "
                         <th scope=\"col\">Domain</th>
                         <th scope=\"col\">Description</th>
                         </tr>
                     </thead>
                     <tbody>";
-                  
-                  foreach ($db->query("SELECT d.NAME, c.DESCRIPTION, c.ID FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE c.NAME = " . "'" . $_GET["component"] . "';") as $row)
+                        foreach ($db->query("SELECT d.NAME, c.DESCRIPTION, c.ID FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE c.NAME = " . "'" . $_GET["component"] . "';") as $row)
                         {
                             echo "<tr><td>" . $row[0] . "</td>
                             <td>" . $row[1] . "</td>
                             <td><a class=\"btn btn-primary\" href=\"FilteredData.php?database=Edit&table=COMPONENT&id=" . $row[2] . "&name=" . $row[0] . "&desc=" . $row[1] . "\" role=\"button\">Edit</a></td>
                             <td> <a class=\"btn btn-primary\" href=\"HandleSQL.php?database=Delete&table=COMPONENT&id=" . $row[2] . "\" role=\"button\">Delete</a></td></tr>";               
-                        }
-                        foreach ($db->query("SELECT d.NAME, c.DESCRIPTION c.ID FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE c.NAME = " . "'" . $_GET["component"] . "';") as $row)
-                        {
-                            echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td></tr>";
                         }
                     }
             echo "</tbody>
