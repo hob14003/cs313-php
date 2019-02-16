@@ -142,6 +142,7 @@ catch (PDOException $ex)
 <div class="container">
   <div class="row">     
     <div class="col-4">
+        
         <h2>Bacteria</h2>
       <table class="table">
         <thead>
@@ -174,7 +175,8 @@ catch (PDOException $ex)
         </tbody>
       </table>
     </div>     
-      <div class="col-4">    
+      <div class="col-4">  
+          
        <h2>Archaea</h2>
       <table class="table">
         <thead>
@@ -209,6 +211,7 @@ catch (PDOException $ex)
     </div>      
       <div class="col-4">   
         <h2>Eukarya</h2>
+          
       <table class="table">
         <thead>
             <tr>
@@ -232,7 +235,7 @@ catch (PDOException $ex)
         </thead>
           <tbody>      
             <?php
-            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE d.ID = 1;') as $row)
+            foreach ($db->query('SELECT c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE d.ID = 3;') as $row)
             {
                 echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "<td></tr>";
             }
