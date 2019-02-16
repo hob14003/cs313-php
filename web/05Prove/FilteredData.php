@@ -240,6 +240,185 @@ catch (PDOException $ex)
     ?>
     
     
+    
+    <!-- Domain View -->
+    <?php
+        if($_GET["domain"]) {
+            echo "   
+                <div class=\"container\">
+                <div class=\"row\">     
+                <div class=\"col-sm\">
+                <h2>" . $_GET['domain'] . "</h2>
+                <table class=\"table\">
+                    <thead>
+                        <tr>
+                        <th scope=\"col\">Characteristic</th>
+                        <th scope=\"col\">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+            
+                    foreach ($db->query("SELECT c.NAME, c.DESCRIPTION c.ID FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE D.NAME = " . "'" . $_GET["domain"] . "';") as $row)
+                    {
+                        echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td></tr>";
+                    }
+            echo "</tbody>
+                  <thead>
+                        <tr>
+                        <th scope=\"col\">Component</th>
+                        <th scope=\"col\">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+            
+                    foreach ($db->query("SELECT c.NAME, c.DESCRIPTION c.ID FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE d.NAME = " . "'" . $_GET["domain"] . "';") as $row)
+                    {
+                        echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td></tr>";
+                    }
+            echo "</tbody>
+                  </table>
+                  </div>
+                  </div>
+                  </div>";
+        }
+    ?>
+    
+    <!-- Search View -->
+    <?php
+        if($_GET["search"]) {
+            $find = filter_var($_GET["search"]);
+            echo "   
+                <div class=\"container\">
+                <div class=\"row\">     
+                <div class=\"col-sm\">
+                <h2>" . $find . "</h2><br>
+                <h4>Domain Search</h4>
+                <table class=\"table\">
+                    <thead>
+                        <tr>
+                        <th scope=\"col\">Domain</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+            
+                    foreach ($db->query("SELECT d.NAME FROM DOMAIN d WHERE d.NAME = " . "'" . $find . "';") as $row)
+                    {
+                        echo "<tr><td>" . $row[0] . "</td></tr>";
+                    }
+            echo "</tbody>
+                  </table>
+                  </div>
+                  </div>
+                  </div>";
+            
+             echo "   
+                <div class=\"container\">
+                <div class=\"row\">     
+                <div class=\"col-sm\">
+                <br><h4>Characteristic Search</h4>
+                <table class=\"table\">
+                    <thead>
+                        <tr>
+                        <th scope=\"col\">Domain</th>
+                        <th scope=\"col\">Characteristic</th>
+                        <th scope=\"col\">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+            
+                    foreach ($db->query("SELECT d.NAME, c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE c.NAME = " . "'" . $find . "';") as $row)
+                    {
+                        echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td></tr>";
+                    }
+            echo "</tbody>
+                  </table>
+                  </div>
+                  </div>
+                  </div>";
+            
+             echo "   
+                <div class=\"container\">
+                <div class=\"row\">     
+                <div class=\"col-sm\">
+                <br><h4>Component Search</h4>
+                <table class=\"table\">
+                    <thead>
+                        <tr>
+                        <th scope=\"col\">Domain</th>
+                        <th scope=\"col\">Component</th>
+                        <th scope=\"col\">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+            
+                    foreach ($db->query("SELECT d.NAME, c.NAME, c.DESCRIPTION FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE c.NAME = " . "'" . $find . "';") as $row)
+                    {
+                        echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td></tr>";
+                    }
+            echo "</tbody>
+                  </table>
+                  </div>
+                  </div>
+                  </div>";
+        }
+    ?>
+    
+    <!-- Database View -->
+    <?php
+        if($_GET["database"]) {
+            $dbCmd = filter_var($_GET["database"]);
+            echo "   
+                <div class=\"container\">
+                <div class=\"row\">     
+                <div class=\"col-sm\">
+                <h2>" . $dbCmd . "</h2>";
+            if($dbCmd == "Insert"){
+                echo "
+                <form action=\"HandleSQL.php?database=Insert\" method=\"post\">
+                    
+                    Domain: <br><input type=\"checkbox\" name=\"domains[]\"   value=1>Bacteria<br>
+                    <input type=\"checkbox\" name=\"domains[]\" value=2>Archaea<br>
+                    <input type=\"checkbox\" name=\"domains[]\" value=3>Eukarya<br>
+                
+                    Type: <br><input type=\"radio\" name=\"charOrComp\" value=\"CHARACTERISTIC\">Characteristic<br>
+                    <input type=\"radio\" name=\"charOrComp\" value=\"COMPONENT\">Component<br>
+                    
+                    Name: <input type=\"text\" name=\"name\"><br>
+                    Description: <input type=\"text\" name=\"desc\"><br>
+                    <input type=\"submit\" value=\"Submit\">
+                </form>";                
+            }
+            if($dbCmd == "Edit"){
+				$id = filter_var($_GET["id"]);
+                $table = filter_var($_GET["table"]);
+                $desc = filter_var($_GET["desc"]);
+                //$name = filter_var($_GET["name"]);
+                
+                foreach ($db->query("SELECT c.NAME FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE c.ID = " . "'" . $id . "';") as $row)
+                {
+                    $name = $row[0];
+                }
+                
+                
+                echo "<script>alert(entered foreach in char db)</script>";
+                  
+                echo "
+                <form action=\"HandleSQL.php?database=Edit&id=" . $id . "&table=" . $table . "\" method=\"post\">
+                    
+                    Name: <input type=\"text\" name=\"name\" value=\"" . $name . "\"><br>
+                    Description: <input type=\"text\" name=\"desc\" value=\"" . $desc . "\"><br>
+                    <input type=\"submit\" value=\"Submit\">
+                </form>"; 
+            }
+            echo "    
+                </div>
+                </div>
+                </div>";
+        }
+    ?>    
+    
+    
+    
         <!-- CELL FOOTER -->
 <div class="container-fluid no-padding">
   <div class="row">     
