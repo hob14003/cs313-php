@@ -117,7 +117,16 @@ catch (PDOException $ex)
           <a class="dropdown-item" href="3DomainsHome.php">All</a>
         </div>
       </li>
-        
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Database
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="FilteredData.php?database=insert">Insert</a>
+            <a class="dropdown-item" href="FilteredData.php?database=edit">Edit</a>
+            <a class="dropdown-item" href="FilteredData.php?database=delete">Delete</a>
+        </div>
+      </li>  
     </ul>
     <form action="FilteredData.php" method="get" class="form-inline my-2 my-lg-0">
       <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
