@@ -348,6 +348,43 @@ catch (PDOException $ex)
         }
     ?>
     
+    <?php
+        if($_GET["database"]) {
+            $dbCmd = filter_var($_GET["database"]);
+            echo "   
+                <div class=\"container\">
+                <div class=\"row\">     
+                <div class=\"col-sm\">
+                <h2>" . $dbCmd . "</h2>";
+            if($dbCmd == "insert"){
+                echo "
+                <form action=\"welcome.php\" method=\"post\">
+                
+                    Domain: <input type=\"checkbox\" name=\"domain\"   value=\"bacteria\">Bacteria<br>
+                    <input type=\"checkbox\" name=\"domain\" value=\"archea\">Archaea<br>
+                    <input type=\"checkbox\" name=\"domain\" value=\"eukarya\">Eukarya<br>
+                
+                    Type: <input type=\"radio\" name=\"charOrComp\" value=\"char\">Characteristic
+                          <input type=\"radio\" name=\"charOrComp\" value=\"comp\">Component
+                    
+                    Name: <input type=\"text\" name=\"name\"><br>
+                    Description: <input type=\"text\" name=\"desc\"><br>
+                    <input type=\"submit\" value=\"Submit\">
+                </form>";                
+            }
+            if($dbCmd == "edit"){
+                
+            }
+            if($dbCmd == "delete"){
+                
+            }
+            echo "    
+                </div>
+                </div>
+                </div>";
+        }
+    ?>    
+    
         <!-- CELL FOOTER -->
 <div class="container-fluid no-padding">
   <div class="row">     
