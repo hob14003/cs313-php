@@ -61,8 +61,8 @@ catch (PDOException $ex)
             $table = filter_var($_GET["table"]);
             $id = filter_var($_GET["id"]);
             echo "<p>table = " . $table . "<br>id = " . $id . "</p>"; 
-            echo "UPDATE " . $table . "SET NAME = '" . $name. "', DESCRIPTION = '" . $desc . "' WHERE ID = '" . $id. "';";
-            $db->query("UPDATE " . $table . "SET NAME = '" . $name. "', DESCRIPTION = '" . $desc . "' WHERE ID = '" . $id. "';");
+            echo "UPDATE " . $table . " SET NAME = '" . $name. "', DESCRIPTION = '" . $desc . "' WHERE ID = '" . $id. "';";
+            $db->query("UPDATE " . $table . " SET NAME = '" . $name. "', DESCRIPTION = '" . $desc . "' WHERE ID = '" . $id. "';");
         }
     }
 //header("Location: 3DomainsHome.php");
