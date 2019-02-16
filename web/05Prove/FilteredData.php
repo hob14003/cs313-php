@@ -122,9 +122,9 @@ catch (PDOException $ex)
           Database
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="FilteredData.php?database=insert">Insert</a>
-            <a class="dropdown-item" href="FilteredData.php?database=edit">Edit</a>
-            <a class="dropdown-item" href="FilteredData.php?database=delete">Delete</a>
+            <a class="dropdown-item" href="FilteredData.php?database=Insert">Insert</a>
+            <a class="dropdown-item" href="FilteredData.php?database=Edit">Edit</a>
+            <a class="dropdown-item" href="FilteredData.php?database=Delete">Delete</a>
         </div>
       </li>  
     </ul>
@@ -138,6 +138,7 @@ catch (PDOException $ex)
     
     <!-- TABLES -->
     
+    <!-- Characteristic View -->
     <?php
         if($_GET["characteristic"]) {
             echo "    
@@ -182,7 +183,7 @@ catch (PDOException $ex)
                   </div>";
         }
     ?>
-    
+    <!-- Component View -->
     <?php
         if($_GET["component"]) {
             echo "    
@@ -228,6 +229,7 @@ catch (PDOException $ex)
         }
     ?>
     
+    <!-- Domain View -->
     <?php
         if($_GET["domain"]) {
             echo "   
@@ -269,6 +271,7 @@ catch (PDOException $ex)
         }
     ?>
     
+    <!-- Search View -->
     <?php
         if($_GET["search"]) {
             $find = filter_var($_GET["search"]);
@@ -348,6 +351,7 @@ catch (PDOException $ex)
         }
     ?>
     
+    <!-- Database View -->
     <?php
         if($_GET["database"]) {
             $dbCmd = filter_var($_GET["database"]);
@@ -356,16 +360,18 @@ catch (PDOException $ex)
                 <div class=\"row\">     
                 <div class=\"col-sm\">
                 <h2>" . $dbCmd . "</h2>";
-            if($dbCmd == "insert"){
+            if($dbCmd == "Insert"){
                 echo "
-                <form action=\"welcome.php\" method=\"post\">
+                <form action=\"HandleSQL.php?database=Insert\" method=\"post\">
                 
-                    Domain: <input type=\"checkbox\" name=\"domain\"   value=\"bacteria\">Bacteria<br>
-                    <input type=\"checkbox\" name=\"domain\" value=\"archea\">Archaea<br>
-                    <input type=\"checkbox\" name=\"domain\" value=\"eukarya\">Eukarya<br>
+                    <input name=\"dataHandle\" value=\"" . $dbCmd . "\">
+                    
+                    Domain: <br><input type=\"checkbox\" name=\"domains[]\"   value=1>Bacteria<br>
+                    <input type=\"checkbox\" name=\"domains[]\" value=2>Archaea<br>
+                    <input type=\"checkbox\" name=\"domains[]\" value=3>Eukarya<br>
                 
-                    Type: <input type=\"radio\" name=\"charOrComp\" value=\"char\">Characteristic
-                          <input type=\"radio\" name=\"charOrComp\" value=\"comp\">Component
+                    Type: <br><input type=\"radio\" name=\"charOrComp\" value=\"CHARACTERISTIC\">Characteristic<br>
+                    <input type=\"radio\" name=\"charOrComp\" value=\"COMPONENT\">Component<br>
                     
                     Name: <input type=\"text\" name=\"name\"><br>
                     Description: <input type=\"text\" name=\"desc\"><br>
