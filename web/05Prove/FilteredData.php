@@ -173,6 +173,7 @@ catch (PDOException $ex)
                     <tbody>";
                         foreach ($db->query("SELECT d.NAME, c.DESCRIPTION, c.ID c.DOMAIN_ID FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE c.NAME = " . "'" . $_GET["characteristic"] . "';") as $row)
                         {
+                            echo "<script>alert(entered foreach in char db)</script>";
                             echo "<tr><td>" . $row[0] . "</td>
                             <td>" . $row[1] . "</td>
                             <td><a class=\"btn btn-primary\" href=\"FilteredData.php?database=Edit&table=CHARACTERISTIC&id=" . $row[2] . "&name=" . $row[0] . "&desc=" . $row[1] . "&domain=" . $row[3] . "\" role=\"button\">Edit</a></td>
@@ -384,7 +385,8 @@ catch (PDOException $ex)
                 $table = filter_var($_GET["table"]);
                 $desc = filter_var($_GET["desc"]);
                 $name = filter_var($_GET["name"]);
-                                
+                echo "<script>alert(entered foreach in char db)</script>";
+                  
                 echo "
                 <form action=\"HandleSQL.php?database=Edit\" method=\"post\">
                     
