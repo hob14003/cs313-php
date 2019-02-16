@@ -42,5 +42,5 @@ catch (PDOException $ex)
              }
          }
     }
-header("Location: 3DomainsHome.php");
+//header("Location: 3DomainsHome.php");
 ?>
