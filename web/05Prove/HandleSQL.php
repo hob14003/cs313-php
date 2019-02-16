@@ -38,7 +38,7 @@ catch (PDOException $ex)
          if($dbCmd == "Insert"){
              echo "<script>alert(\"entered if2\")</script>";
              $charOrComp = filter_var($_POST["charOrComp"]);
-             $domains = filter_var($_POST["domains"]);
+             $domains = filter_var($_POST["domains[]"]);
              $name = filter_var($_POST["name"]);
              $desc = filter_var($_POST["desc"]);
                 echo "<p>charOrComp = " . $charOrComp . "<br>domains = " . $domains . "<br>name = " . $name . "<br>desc = " . $desc . "</p>";        
