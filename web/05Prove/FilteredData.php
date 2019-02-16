@@ -191,7 +191,6 @@ catch (PDOException $ex)
         <!-- Component View -->
     <?php
         if($_GET["component"]) {
-                echo "<script>alert('test 3')</script>";
 
             echo "    
                 <div class=\"container\">
