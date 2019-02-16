@@ -44,6 +44,7 @@ catch (PDOException $ex)
                 echo "<p>charOrComp = " . $charOrComp . "<br>domains = " . $domains . "<br>name = " . $name . "<br>desc = " . $desc . "</p>";        
              foreach($domains as $domain) {
                  echo "<script>alert(\"entered domain loop\")</script>";
+                 echo "INSERT INTO " . $charOrComp . "(DOMAIN_ID, NAME, DESCRIPTION) VALUES (" . $domain . ", " . $name . ", " . $desc . ");";
              $db->query("INSERT INTO " . $charOrComp . "(DOMAIN_ID, NAME, DESCRIPTION) VALUES (" . $domain . ", " . $name . ", " . $desc . ");");
              }
          }
