@@ -25,14 +25,18 @@ catch (PDOException $ex)
 }
 
     if($_GET["database"]) {
+                     echo "<script>alert(\"entered if1\")</script>";
+
             $dbCmd = filter_var($_GET["database"]);
          if($dbCmd == "Insert"){
+             echo "<script>alert(\"entered if2\")</script>";
              $charOrComp = $_GET["charOrComp"];
              $domains = $_GET["domains"];
              $name = $_GET["name"];
              $desc = $_GET["desc"];
              
              foreach($domains as $domain) {
+                 echo "<script>alert(\"entered domain loop\")</script>";
              $db->query("INSERT INTO " . $charOrComp . "(DOMAIN_ID, NAME, DESCRIPTION) VALUES (" . $domain . ", " . $name . ", " . $desc . ");");
              }
          }
