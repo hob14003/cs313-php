@@ -214,19 +214,7 @@ catch (PDOException $ex)
                         <th scope=\"col\"></th>
                         </tr>
                     </thead>
-                    <tbody>";
-            
-                
-                        foreach ($db->query("SELECT d.NAME, c.NAME, c.DESCRIPTION, c.ID FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID;") as $row)
-                        {
-                            echo "<tr><td>" . $row[0] . "</td>
-                            <td>" . $row[1] . "</td>
-                            <td>" . $row[2] . "</td>
-                            <td><a class=\"btn btn-primary\" href=\"FilteredData.php?database=Edit&table=COMPONENT&id=" . $row[3] . "&name=" . $row[0] . "&desc=" . $row[2] . "\" role=\"button\">Edit</a></td>
-                            <td> <a class=\"btn btn-primary\" href=\"HandleSQL.php?database=Delete&table=COMPONENT&id=" . $row[3] . "\" role=\"button\">Delete</a></td>
-                            </tr>";
-                        }
-                
+                    <tbody>";                
                     
                         foreach ($db->query("SELECT d.NAME, c.NAME, c.DESCRIPTION, c.ID FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID;") as $row)
                         {
@@ -282,7 +270,7 @@ catch (PDOException $ex)
                     <tbody>";
                     foreach ($db->query("SELECT d.NAME, c.NAME, c.DESCRIPTION, c.ID FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE D.NAME = '" . $_GET["domain"] . "';") as $row)
                         {
-                            echo "<tr><td>" . $row[0] . "</td>
+                            echo "<tr>
                             <td>" . $row[1] . "</td>
                             <td>" . $row[2] . "</td>
                             <td><a class=\"btn btn-primary\" href=\"FilteredData.php?database=Edit&table=CHARACTERISTIC&id=" . $row[3] . "&name=" . $row[1] . "&desc=" . $row[2] . "\" role=\"button\">Edit</a></td>
@@ -303,7 +291,7 @@ catch (PDOException $ex)
                     <tbody>";
                     foreach ($db->query("SELECT d.NAME, c.NAME, c.DESCRIPTION, c.ID FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE D.NAME = '" . $_GET["domain"] . "';") as $row)
                         {
-                            echo "<tr><td>" . $row[0] . "</td>
+                            echo "<tr>
                             <td>" . $row[1] . "</td>
                             <td>" . $row[2] . "</td>
                             <td><a class=\"btn btn-primary\" href=\"FilteredData.php?database=Edit&table=COMPONENT&id=" . $row[3] . "&name=" . $row[1] . "&desc=" . $row[2] . "\" role=\"button\">Edit</a></td>
