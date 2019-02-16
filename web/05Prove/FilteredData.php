@@ -161,11 +161,9 @@ catch (PDOException $ex)
                     </thead>
                     <tbody>";
             
-                    echo "<td>Out</td>";
                 echo "SELECT d.NAME, c.NAME, c.DESCRIPTION c.ID FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID;";
                         foreach ($db->query("SELECT d.NAME, c.NAME, c.DESCRIPTION, c.ID FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID;") as $row)
                         {
-                            echo "<td>In</td>";
                             echo "<tr><td>" . $row[0] . "</td>
                             <td>" . $row[1] . "</td>
                             <td>" . $row[2] . "</td>
@@ -224,7 +222,12 @@ catch (PDOException $ex)
                     
                         foreach ($db->query("SELECT d.NAME, c.NAME, c.DESCRIPTION, c.ID FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID;") as $row)
                         {
-                            echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td></tr>";
+                            echo "<tr><td>" . $row[0] . "</td>
+                            <td>" . $row[1] . "</td>
+                            <td>" . $row[2] . "</td>
+                            <td><a class=\"btn btn-primary\" href=\"FilteredData.php?database=Edit&table=COMPONENT&id=" . $row[3] . "&name=" . $row[0] . "&desc=" . $row[2] . "\" role=\"button\">Edit</a></td>
+                            <td> <a class=\"btn btn-primary\" href=\"HandleSQL.php?database=Delete&table=COMPONENT&id=" . $row[3] . "\" role=\"button\">Delete</a></td>
+                            </tr>";
                         }
                     }
                 else {
@@ -271,7 +274,12 @@ catch (PDOException $ex)
             
                     foreach ($db->query("SELECT c.NAME, c.DESCRIPTION, c.ID FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE D.NAME = " . "'" . $_GET["domain"] . "';") as $row)
                     {
-                        echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td></tr>";
+                        echo "<tr><td>" . $row[0] . "</td>
+                        <td>" . $row[1] . "</td>
+                        <td><a class=\"btn btn-primary\" href=\"FilteredData.php?database=Edit&table=CHARACTERISTIC&id=" . $row[2] . "&name=" . $_GET["domain"] . "&desc=" . $row[1] . "\" role=\"button\">Edit</a></td>
+                            <td> <a class=\"btn btn-primary\" href=\"HandleSQL.php?database=Delete&table=CHARACTERISTIC&id=" . $row[2] . "\" role=\"button\">Delete</a></td>
+                            </tr>";
+
                     }
             echo "</tbody>
                   <thead>
@@ -284,7 +292,11 @@ catch (PDOException $ex)
             
                     foreach ($db->query("SELECT c.NAME, c.DESCRIPTION, c.ID FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE d.NAME = " . "'" . $_GET["domain"] . "';") as $row)
                     {
-                        echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td></tr>";
+                        echo "<tr><td>" . $row[0] . "</td>
+                        <td>" . $row[1] . "</td>
+                        <td><a class=\"btn btn-primary\" href=\"FilteredData.php?database=Edit&table=COMPONENT&id=" . $row[2] . "&name=" . $_GET["domain"] . "&desc=" . $row[1] . "\" role=\"button\">Edit</a></td>
+                        <td> <a class=\"btn btn-primary\" href=\"HandleSQL.php?database=Delete&table=COMPONENT&id=" . $row[2] . "\" role=\"button\">Delete</a></td>
+                            </tr>"
                     }
             echo "</tbody>
                   </table>
