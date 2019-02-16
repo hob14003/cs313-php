@@ -1,5 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    </head>
+    <body>
+    
 <?php
-
 
 try
 {
@@ -35,7 +41,7 @@ catch (PDOException $ex)
              $domains = filter_var($_POST["domains"]);
              $name = filter_var($_POST["name"]);
              $desc = filter_var($_POST["desc"]);
-                          
+                echo "<p>charOrComp = " . $charOrComp . "<br>domains = " . $domains . "<br>name = " . $name . "<br>desc = " . $desc . "</p>";        
              foreach($domains as $domain) {
                  echo "<script>alert(\"entered domain loop\")</script>";
              $db->query("INSERT INTO " . $charOrComp . "(DOMAIN_ID, NAME, DESCRIPTION) VALUES (" . $domain . ", " . $name . ", " . $desc . ");");
@@ -44,3 +50,5 @@ catch (PDOException $ex)
     }
 //header("Location: 3DomainsHome.php");
 ?>
+    </body>
+</html>
