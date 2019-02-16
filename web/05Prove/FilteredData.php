@@ -254,7 +254,45 @@ catch (PDOException $ex)
     ?>
     
     
-    
+    <!-- Domain View -->
+    <?php
+        if($_GET["domain"]) {
+            echo "   
+                <div class=\"container\">
+                <div class=\"row\">     
+                <div class=\"col-sm\">
+                <h2>" . $_GET['domain'] . "</h2>
+                <table class=\"table\">
+                    <thead>
+                        <tr>
+                        <th scope=\"col\">Characteristic</th>
+                        <th scope=\"col\">Description</th>
+                        <th scope=\"col\"></th>
+                        <th scope=\"col\"></th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+            
+                    
+            echo "</tbody>
+                  <thead>
+                        <tr>
+                        <th scope=\"col\">Component</th>
+                        <th scope=\"col\">Description</th>
+                        <th scope=\"col\"></th>
+                        <th scope=\"col\"></th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+            
+                    
+            echo "</tbody>
+                  </table>
+                  </div>
+                  </div>
+                  </div>";
+        }
+    ?>
     
     
     <!-- Search View -->
