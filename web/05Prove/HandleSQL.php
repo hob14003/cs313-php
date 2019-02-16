@@ -35,6 +35,7 @@ catch (PDOException $ex)
                      echo "<script>alert(\"entered if1\")</script>";
 
             $dbCmd = filter_var($_GET["database"]);
+        //INSERT
          if($dbCmd == "Insert"){
              echo "<script>alert(\"entered if2\")</script>";
              $charOrComp = filter_var($_POST["charOrComp"]);
@@ -48,6 +49,12 @@ catch (PDOException $ex)
              $db->query("INSERT INTO " . $charOrComp . "(DOMAIN_ID, NAME, DESCRIPTION) VALUES ('" . $domain . "', '" . $name . "', '" . $desc . "');");
              }
          }
+        //DELETE
+        if($dbCmd == "Delete"){
+            $table = filter_var($_GET["table"]);
+            $id = filter_var($_GET["id"]);
+            $db->query("DELETE FROM " . $table . " WHERE ID = '" . $id. "');");
+        }
     }
 //header("Location: 3DomainsHome.php");
 ?>
