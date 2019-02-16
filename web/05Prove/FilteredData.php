@@ -140,7 +140,11 @@ catch (PDOException $ex)
     
     <!-- Characteristic View -->
     <?php
+    echo "<script>alert('test 1')</script>";
+
         if($_GET["characteristic"]) {
+                echo "<script>alert('test 2')</script>";
+
             echo "    
                 <div class=\"container\">
                 <div class=\"row\">     
@@ -165,7 +169,7 @@ catch (PDOException $ex)
                         }
                     }
                 else {
-                    echo"
+                    echo "
                         <th scope=\"col\">Domain</th>
                         <th scope=\"col\">Description</th>
                         </tr>
@@ -173,7 +177,7 @@ catch (PDOException $ex)
                     <tbody>";
                         foreach ($db->query("SELECT d.NAME, c.DESCRIPTION, c.ID c.DOMAIN_ID FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE c.NAME = " . "'" . $_GET["characteristic"] . "';") as $row)
                         {
-                            echo "<script>alert(entered foreach in char db)</script>";
+                            echo "<script>alert('entered foreach in char db')</script>";
                             echo "<tr><td>" . $row[0] . "</td>
                             <td>" . $row[1] . "</td>
                             <td><a class=\"btn btn-primary\" href=\"FilteredData.php?database=Edit&table=CHARACTERISTIC&id=" . $row[2] . "&name=" . $row[0] . "&desc=" . $row[1] . "&domain=" . $row[3] . "\" role=\"button\">Edit</a></td>
@@ -190,6 +194,8 @@ catch (PDOException $ex)
     <!-- Component View -->
     <?php
         if($_GET["component"]) {
+                echo "<script>alert('test 3')</script>";
+
             echo "    
                 <div class=\"container\">
                 <div class=\"row\">     
