@@ -401,7 +401,7 @@ catch (PDOException $ex)
                 echo "<script>alert(entered foreach in char db)</script>";
                   
                 echo "
-                <form action=\"HandleSQL.php?database=Edit\" method=\"post\">
+                <form action=\"HandleSQL.php?database=Edit&id=" . $id . "&table=" . $table . "\" method=\"post\">
                     
                     Name: <input type=\"text\" name=\"name\" value=\"" . $name . "\"><br>
                     Description: <input type=\"text\" name=\"desc\" value=\"" . $desc . "\"><br>
