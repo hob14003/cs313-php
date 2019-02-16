@@ -155,6 +155,8 @@ catch (PDOException $ex)
                         <th scope=\"col\">Domain</th>
                         <th scope=\"col\">Characteristic</th>
                         <th scope=\"col\">Description</th>
+                        <th scope=\"col\"></th>
+                        <th scope=\"col\"></th>
                         </tr>
                     </thead>
                     <tbody>";
@@ -162,7 +164,12 @@ catch (PDOException $ex)
                     
                         foreach ($db->query("SELECT d.NAME, c.NAME, c.DESCRIPTION c.ID FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID;") as $row)
                         {
-                            echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td></tr>";
+                            echo "<tr><td>" . $row[0] . "</td>
+                            <td>" . $row[1] . "</td>
+                            <td>" . $row[2] . "</td>
+                            <td><a class=\"btn btn-primary\" href=\"FilteredData.php?database=Edit&table=CHARACTERISTIC&id=" . $row[3] . "&name=" . $row[0] . "&desc=" . $row[2] . "\" role=\"button\">Edit</a></td>
+                            <td> <a class=\"btn btn-primary\" href=\"HandleSQL.php?database=Delete&table=CHARACTERISTIC&id=" . $row[3] . "\" role=\"button\">Delete</a></td>
+                            </tr>";
                         }
                     }
                 else {
@@ -206,6 +213,8 @@ catch (PDOException $ex)
                         <th scope=\"col\">Domain</th>
                         <th scope=\"col\">Component</th>
                         <th scope=\"col\">Description</th>
+                        <th scope=\"col\"></th>
+                        <th scope=\"col\"></th>
                         </tr>
                     </thead>
                     <tbody>";
