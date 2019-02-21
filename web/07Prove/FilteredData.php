@@ -417,13 +417,17 @@ catch (PDOException $ex)
 				$id = filter_var($_GET["id"]);
                 $table = filter_var($_GET["table"]);
                 $desc = filter_var($_GET["desc"]);
-                //$name = filter_var($_GET["name"]);
-                
-                foreach ($db->query("SELECT c.NAME FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE c.ID = " . "'" . $id . "';") as $row)
-                {
-                    $name = $row[0];
+                if($table == "COMPONENT"){
+                    foreach ($db->query("SELECT c.NAME FROM DOMAIN d INNER JOIN COMPONENT c ON d.ID = c.DOMAIN_ID WHERE c.ID = " . "'" . $id . "';") as $row) {
+                        $name = $row[0];
+                    }
                 }
-                
+                    
+                if($table == "CHARACTERISTIC") {
+                    foreach ($db->query("SELECT c.NAME FROM DOMAIN d INNER JOIN CHARACTERISTIC c ON d.ID = c.DOMAIN_ID WHERE c.ID = " . "'" . $id . "';") as $row) {
+                        $name = $row[0];
+                    }
+                }
                 
                 echo "<script>alert(entered foreach in char db)</script>";
                   
