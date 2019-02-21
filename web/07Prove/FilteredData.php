@@ -403,14 +403,14 @@ catch (PDOException $ex)
                     
                     Domain: <input type=\"checkbox\" name=\"domains[]\"   value=1>Bacteria
                     <input type=\"checkbox\" name=\"domains[]\" value=2>Archaea
-                    <input type=\"checkbox\" name=\"domains[]\" value=3>Eukarya
+                    <input type=\"checkbox\" name=\"domains[]\" value=3>Eukarya<br>
                 
-                    Type: <br><input type=\"radio\" name=\"charOrComp\" value=\"CHARACTERISTIC\">Characteristic<br>
+                    Type: <input type=\"radio\" name=\"charOrComp\" value=\"CHARACTERISTIC\">Characteristic
                     <input type=\"radio\" name=\"charOrComp\" value=\"COMPONENT\">Component<br>
                     
                     Name: <input type=\"text\" name=\"name\"><br>
                     Description: <input type=\"text\" name=\"desc\"><br>
-                    <input type=\"submit\" value=\"Submit\">
+                    <input class=\"btn btn-primary\" type=\"submit\" value=\"Submit\">
                 </form>";                
             }
             if($dbCmd == "Edit"){
