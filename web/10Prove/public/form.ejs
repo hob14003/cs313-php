@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include ../partials/head %>
+</head>
+<body class="container">
+
+	<header>
+		<% include ../partials/header %>
+	</header>
+
+	<main>
+		<div class="jumbotron">
+			<h1>First Class Postal Calculator</h1>
+            <p>Please insert the weight and type of postage to be sent</p>
+            
+            <form action="/getRate" method="GET">
+                Type: 
+                <select name="mail">
+                    <option value="stamp">Stamped Letter</option>
+                    <option value="meter">Metered Letter</option>
+                    <option value="flat">Large Envelop</option>
+                    <option value="fclass">Package Service</option>
+                </select>
+                <br><br>
+                Weight: <input type="text" name="weight" placeholder="enter weight">(oz)<br><br>
+                <input type="submit" value="calculate">
+            </form>
+		</div>
+	</main>
+
+	<footer>
+		<% include ../partials/footer %>
+	</footer>
+	
+</body>
+</html>

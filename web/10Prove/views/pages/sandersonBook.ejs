@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include ../partials/bookHead %>
+</head>
+<body class="container">
+
+	<header>
+		<% include ../partials/bookHeader %>
+	</header>
+
+	<main>
+		<div class="jumbotron">
+			<% if (typeof data !== 'undefined'){ %>
+			<h1><%= data[0].series %></h1>
+            <p></p>           
+                
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Book Number</th>
+                        <th>Name</th>
+                        <th>Description</th>
+
+                    </tr>
+                    <% for(var i=0; i < data.length; i++) { %>
+                    <tr>
+                        <td><%= data[i].id %></td>
+                        <td><%= data[i].book_num %></td>
+                        <td><%= data[i].book %></td>
+                        <td><%= data[i].description %></td>
+                    </tr>  
+                    <% }} %>
+                </table>
+            
+		</div>
+	</main>
+
+	<footer>
+		<% include ../partials/bookFooter %>
+	</footer>
+	
+</body>
+</html>

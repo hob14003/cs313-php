@@ -1,4 +1,45 @@
+
 <!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include ../partials/head %>
+</head>
+<body class="container">
+
+	<header>
+		<% include ../partials/header %>
+	</header>
+
+	<main>
+		<div class="jumbotron">
+			<h1>First Class Postal Calculator</h1>
+            <p>Please insert the weight and type of postage to be sent</p>
+            
+            <form action="/getRate" method="GET">
+                Type: 
+                <select name="mail">
+                    <option value="stamp">Stamped Letter</option>
+                    <option value="meter">Metered Letter</option>
+                    <option value="flat">Large Envelop</option>
+                    <option value="fclass">Package Service</option>
+                </select>
+                <br><br>
+                Weight: <input type="text" name="weight" placeholder="enter weight">(oz)<br><br>
+                <input type="submit" value="calculate">
+            </form>
+		</div>
+	</main>
+
+	<footer>
+		<% include ../partials/footer %>
+	</footer>
+	
+</body>
+</html>
+
+
+
+<!--<!DOCTYPE html>
 <html>
 <head>
   <% include ../partials/header.ejs %>
@@ -55,7 +96,7 @@
         <li><a href="https://devcenter.heroku.com/articles/deploying-nodejs">Deploying Node Apps on Heroku</a></li>
       </ul>
     </div>
-  </div> <!-- row -->
+  </div>
    <div class="alert alert-info text-center" role="alert">
     Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
   </div>
@@ -64,3 +105,4 @@
 
 </body>
 </html>
+-->
