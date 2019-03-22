@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include ../partials/bookHead %>
+</head>
+<body class="container">
+
+	<header>
+		<% include ../partials/bookHeader %>
+	</header>
+
+	<main>
+		<div class="jumbotron">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+
+                      
+            <% if (typeof bookInfo !== 'undefined'){ %>
+                <!--BOOK-->          
+                <h1 class="text-center"><%= bookInfo[0].book %></h1>
+                <img style="display: block;margin-left: auto;margin-right: auto;width: 50%;" src="images/<%= bookInfo[0].book_img %>.JPG" alt="<%= bookInfo[0].book %>">     <p><%= bookInfo[0].description %></p>
+            <% } else if (typeof data !== 'undefined'){ %>
+                <!--SERIES-->
+			<h1 class="text-center"><%= data[0].series %></h1>
+                        
+            <img style="display: block;margin-left: auto;margin-right: auto;width: 50%;" src="images/<%= data[0].series_img %>.JPG" alt="<%= data[0].series %>">
+                        
+                <% for(var i=0; i < data.length; i++) { %>    
+                    <button onclick="window.location.href = 'https://stormy-caverns-94610.herokuapp.com/book?id=<%= data[i].description %>';" type="button" class="btn btn-<%=data[0].color %>"><%= data[i].book_num %>. <%= data[i].book %></button>
+                <% } %>               
+            <% } else { %>
+                <!--AUTHOR-->
+                <img style="display: block;margin-left: auto;margin-right: auto;width: 50%;" src="https://cdn.pastemagazine.com/www/articles/brandon%20sanderson%20cover%20feature%20main-min.png" alt="Brandon Sanderson">  
+                <p class="text-center">Brandon Sanderson is a popular fantasy author. His revolutionary story telling and unique settings have caused many to compare the impact of his works to J. R. R. Tolkien's. Please browse this site to become more familiar with some of his works.</p>
+                            
+            <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</main>
+
+	<footer>
+		<% include ../partials/bookFooter %>
+	</footer>
+	
+</body>
+</html>
