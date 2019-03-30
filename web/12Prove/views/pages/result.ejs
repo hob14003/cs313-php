@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include ../partials/head %>
+</head>
+<body class="container">
+
+	<header>
+		<% include ../partials/header %>
+	</header>
+
+	<main>
+		<div class="jumbotron">
+			<h1>First Class Postal Calculator</h1>
+            <p>Please insert the weight and type of postage to be sent</p>
+            
+                Type: <%= mail %>
+                <br><br>
+                Weight: <%= weight %>
+                <br><br>
+                Price: <%= price %>
+		</div>
+	</main>
+
+	<footer>
+		<% include ../partials/footer %>
+	</footer>
+	
+</body>
+</html>
